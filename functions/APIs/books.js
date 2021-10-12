@@ -11,11 +11,11 @@ exports.getAllBooks = (request, response) => {
                     bookId: doc.id,
                     title: doc.data().Title,
 					author: doc.data().Author,
-					description: doc.data().description,
-					currentlyReading: doc.data().currentlyReading,
-					completedReading: doc.data().completedReading,
-					recommended: doc.data.recommendeded,
-					toRead: doc.data().toRead,
+					description: doc.data().Description,
+					currentlyReading: doc.data().CurrentlyReading,
+					completedReading: doc.data().CompletedReading,
+					recommended: doc.data.Recommended,
+					toRead: doc.data().ToRead,
 				});
 			});
 			return response.json(books);

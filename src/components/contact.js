@@ -15,14 +15,12 @@ class Contact extends Component {
       <section id="contact">
         <div className="row">
           <Fade duration={1000}>
-            <div className="row">
-              <div className="nine columns main-col">
+              <div className="main-col">
                 <h2>Send me a message.</h2>
+                <br />
               </div>
-            </div>
           </Fade>
-          <Slide left duration={1000}>
-            <div className="eight columns">
+            <div className="main-col">
               <form action="" method="post" id="contactForm" name="contactForm">
                 <fieldset>
                   <div>
@@ -92,7 +90,6 @@ class Contact extends Component {
                 <br />
               </div>
             </div>
-          </Slide>
         </div>
       </section>
     );

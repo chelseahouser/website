@@ -54,11 +54,10 @@ class Books extends Component {
     return (
       <section id="books">
 		<div className="row">
-			<div className="nine columns main-col">
+			<div className="main-col">
 				<h2>Books</h2>
 			</div>
 		</div>
-        <Slide left duration={1300}>
           <div className="row currentlyReading">
             <div className="three columns header-col">
               <h1>
@@ -74,9 +73,7 @@ class Books extends Component {
               </div>
             </div>
           </div>
-        </Slide>
 
-        <Slide left duration={1300}>
           <div className="row recommended">
             <div className="three columns header-col">
               <h1>
@@ -92,9 +89,7 @@ class Books extends Component {
               </div>
             </div>
           </div>
-        </Slide>
 
-        <Slide left duration={1300}>
           <div className="row toRead">
             <div className="three columns header-col">
               <h1>
@@ -110,7 +105,6 @@ class Books extends Component {
               </div>
             </div>
           </div>
-        </Slide>
       </section>
     );
   }

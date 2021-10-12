@@ -61,21 +61,25 @@ class Header extends Component {
               <h1 className="responsive-headline">Chelsea Houser</h1>
             </Fade>
             <Fade bottom duration={1200}>
-              <h3>...</h3>
+              <h3>Senior Software Developer and Consultant at Rural Sourcing Inc</h3>
             </Fade>
             <hr />
             <Fade bottom duration={2000}>
               <ul className="social">
+                <li key="linkedin">
+                  <a href="https://www.linkedin.com/in/chelsea-houser-5884b765" target="_blank" rel="noreferrer noopener">
+                    <i className={"fa fa-linkedin"}></i>
+                  </a>
+                </li>
               </ul>
             </Fade>
+            <p className="scrolldown">
+              <a className="smoothscroll" href="#about">
+                <i className="icon-down-circle"></i>
+              </a>
+            </p>
           </div>
         </div>
-
-        <p className="scrolldown">
-          <a className="smoothscroll" href="#about">
-            <i className="icon-down-circle"></i>
-          </a>
-        </p>
       </header>
     );
   }

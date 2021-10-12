@@ -11,9 +11,9 @@ exports.getAllBlogs = (request, response) => {
 				blogs.push({
                     blogId: doc.id,
                     title: doc.data().Title,
-					post: doc.data().post,
-					tags: doc.data().tags,
-					sources: doc.data().sources
+					post: doc.data().Post,
+					tags: doc.data().Tags,
+					sources: doc.data().Sources
 				});
 			});
 			return response.json(blogs);
