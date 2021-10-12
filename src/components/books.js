@@ -1,43 +1,20 @@
-import React, { Component } from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
-import withStyles from '@material-ui/core/styles/withStyles';
-import Container from '@material-ui/core/Container';
+import React, { Component } from "react";
+import Fade from "react-reveal";
 
-
-const styles = (theme) => ({
-	paper: {
-		marginTop: theme.spacing(8),
-		display: 'flex',
-		flexDirection: 'column',
-		alignItems: 'center'
-	}
-});
-
-class books extends Component {
-	constructor(props) {
-		super(props);
-
-		this.state = {
-		};
-	}
-
-	render() {
-		const { classes } = this.props;
-		return (
-			<Container component="main" maxWidth="xs">
-				<CssBaseline />
-				<div className={classes.paper}>
-					<Typography component="h1" variant="h5">
-						Books
-					</Typography>
-					<Typography component="h2" variant="h5">
-						What I am reading now
-					</Typography>
-				</div>
-			</Container>
-		);
-	}
+class Books extends Component {
+  render() {
+    return (
+      <section id="books">
+        <Fade duration={1000}>
+          <div className="row">
+            <div className="nine columns main-col">
+              <h2>Books</h2>
+            </div>
+          </div>
+        </Fade>
+      </section>
+    );
+  }
 }
 
-export default withStyles(styles)(books);
+export default Books;

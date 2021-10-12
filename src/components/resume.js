@@ -1,40 +1,109 @@
-import React, { Component } from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
-import withStyles from '@material-ui/core/styles/withStyles';
-import Container from '@material-ui/core/Container';
+import React, { Component } from "react";
+import Slide from "react-reveal";
 
+class Resume extends Component {
+  getRandomColor() {
+    let letters = "0123456789ABCDEF";
+    let color = "#";
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
 
-const styles = (theme) => ({
-	paper: {
-		marginTop: theme.spacing(8),
-		display: 'flex',
-		flexDirection: 'column',
-		alignItems: 'center'
-	}
-});
+  render() {
+    // if (!this.props.data) return null;
 
-class resume extends Component {
-	constructor(props) {
-		super(props);
+    // const skillmessage = this.props.data.skillmessage;
+    // const education = this.props.data.education.map(function (education) {
+    //   return (
+    //     <div key={education.school}>
+    //       <h3>{education.school}</h3>
+    //       <p className="info">
+    //         {education.degree} <span>&bull;</span>
+    //         <em className="date">{education.graduated}</em>
+    //       </p>
+    //       <p>{education.description}</p>
+    //     </div>
+    //   );
+    // });
 
-		this.state = {
-		};
-	}
+    // const work = this.props.data.work.map(function (work) {
+    //   return (
+    //     <div key={work.company}>
+    //       <h3>{work.company}</h3>
+    //       <p className="info">
+    //         {work.title}
+    //         <span>&bull;</span> <em className="date">{work.years}</em>
+    //       </p>
+    //       <p>{work.description}</p>
+    //     </div>
+    //   );
+    // });
 
-	render() {
-		const { classes } = this.props;
-		return (
-			<Container component="main" maxWidth="xs">
-				<CssBaseline />
-				<div className={classes.paper}>
-					<Typography component="h1" variant="h5">
-						resume
-					</Typography>
-				</div>
-			</Container>
-		);
-	}
+    // const skills = this.props.data.skills.map((skills) => {
+    //   const backgroundColor = this.getRandomColor();
+    //   const className = "bar-expand " + skills.name.toLowerCase();
+    //   const width = skills.level;
+
+    //   return (
+    //     <li key={skills.name}>
+    //       <span style={{ width, backgroundColor }} className={className}></span>
+    //       <em>{skills.name}</em>
+    //     </li>
+    //   );
+    // });
+
+    return (
+      <section id="resume">
+        <Slide left duration={1300}>
+          <div className="row education">
+            <div className="three columns header-col">
+              <h1>
+                <span>Education</span>
+              </h1>
+            </div>
+
+            <div className="nine columns main-col">
+              <div className="row item">
+                <div className="twelve columns"></div>
+              </div>
+            </div>
+          </div>
+        </Slide>
+
+        <Slide left duration={1300}>
+          <div className="row work">
+            <div className="three columns header-col">
+              <h1>
+                <span>Work</span>
+              </h1>
+            </div>
+
+            <div className="nine columns main-col"></div>
+          </div>
+        </Slide>
+
+        <Slide left duration={1300}>
+          <div className="row skill">
+            <div className="three columns header-col">
+              <h1>
+                <span>Skills</span>
+              </h1>
+            </div>
+
+            <div className="nine columns main-col">
+              <p></p>
+
+              <div className="bars">
+                <ul className="skills"></ul>
+              </div>
+            </div>
+          </div>
+        </Slide>
+      </section>
+    );
+  }
 }
 
-export default withStyles(styles)(resume);
+export default Resume;

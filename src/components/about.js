@@ -1,40 +1,51 @@
-import React, { Component } from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
-import withStyles from '@material-ui/core/styles/withStyles';
-import Container from '@material-ui/core/Container';
+import React, { Component } from "react";
+import Fade from "react-reveal";
 
+class About extends Component {
+  render() {
+    const name = "Chelsea Houser";
+    const profilepic = "images/profilepic.png";
+    const bio = "Bio info goes here";
+    const email = "ChelseaRHouser@gmail.com";
+    const resumeDownload = "";
 
-const styles = (theme) => ({
-	paper: {
-		marginTop: theme.spacing(8),
-		display: 'flex',
-		flexDirection: 'column',
-		alignItems: 'center'
-	}
-});
+    return (
+      <section id="about">
+        <Fade duration={1000}>
+          <div className="row">
+            <div className="three columns">
+              <img
+                className="profile-pic"
+                src={profilepic}
+                alt="Chelsea Houser Profile Pic"
+              />
+            </div>
+            <div className="nine columns main-col">
+              <h2>About Me</h2>
 
-class about extends Component {
-	constructor(props) {
-		super(props);
-
-		this.state = {
-		};
-	}
-
-	render() {
-		const { classes } = this.props;
-		return (
-			<Container component="main" maxWidth="xs">
-				<CssBaseline />
-				<div className={classes.paper}>
-					<Typography component="h1" variant="h5">
-						about
-					</Typography>
-				</div>
-			</Container>
-		);
-	}
+              <p>{bio}</p>
+              <div className="row">
+                <div className="columns contact-details">
+				  <p>
+                    <a href="#contact" className="button">
+                      <i className="fa fa-download"></i>Contact Me
+                    </a>
+                  </p>
+                </div>
+                <div className="columns download">
+                  <p>
+                    <a href={resumeDownload} className="button">
+                      <i className="fa fa-download"></i>Download Resume
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Fade>
+      </section>
+    );
+  }
 }
 
-export default withStyles(styles)(about);
+export default About;

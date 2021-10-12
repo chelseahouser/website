@@ -4,8 +4,6 @@ import Fade from "react-reveal";
 
 class Header extends Component {
   render() {
-    if (!this.props.data) return null;
-
     return (
       <header id="home">
         <ParticlesBg type="circle" bg={true} />
