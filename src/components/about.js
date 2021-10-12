@@ -23,7 +23,7 @@ class About extends Component {
             <div className="nine columns main-col">
               <h2>About Me</h2>
 
-              <p>{bio}</p>
+              <p>I am a Senior Software Developer with over a decade of experience in consulting. I love to learn, play video games, brew beer, and shower my pets with lots of love.</p>
               <div className="row">
                 <div className="columns contact-details">
 				  <p>
