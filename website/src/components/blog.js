@@ -11,7 +11,7 @@ class Blog extends Component {
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     axios
       .get(API_URL + "/blog")
       .then((response) => {

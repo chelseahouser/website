@@ -14,7 +14,7 @@ class Resume extends Component {
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     axios
       .get(API_URL + "/work")
       .then((response) => {

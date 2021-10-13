@@ -1,25 +1,89 @@
 import React, { Component } from "react";
-import { Fade } from "react-reveal";
+import axios from "axios";
+import { API_URL } from "../config";
 
 class Contact extends Component {
-  render() {
-    // const name = this.props.data.name;
-    // const street = this.props.data.address.street;
-    // const city = this.props.data.address.city;
-    // const state = this.props.data.address.state;
-    // const zip = this.props.data.address.zip;
-    // const phone = this.props.data.phone;
-    // const message = this.props.data.contactmessage;
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      name: "",
+      email: "",
+      message: "",
+      subject: "",
+    };
+  }
+
+  validateMessage() {
+    return true;
+    // if (this.state.name != null && this.state.name != "") {
+    //   if (this.state.email != null && this.state.email != "") {
+    //     if (this.state.message != null && this.state.message != "") {
+    //       return true;
+    //     }
+    //   }
+    // }
+    // return false;
+  }
+
+  sendContactEmail(e) {
+    e.preventDefault();
+    console.log(this.state);
+    if (this.validateMessage()) {
+      axios
+        .post(API_URL + "/contact", this.state)
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+          this.setState({ errorMsg: "Error in sending the message" });
+        });
+    } else {
+      // TODO: Toast
+      //this.setState({ error: true });
+    }
+  }
+
+  handleChange(e) {
+    var value = e.target.value;
+    switch (e.target.id) {
+      case "contactEmail":
+        if (this.state.email != value) {
+          this.setState({ email: value });
+        }
+        break;
+      case "contactName":
+        if (this.state.name != value) {
+          this.setState({ name: value });
+        }
+        break;
+      case "contactSubject":
+        if (this.state.subject != value) {
+          this.setState({ subject: value });
+        }
+        break;
+      case "contactMessage":
+        if (this.state.message != value) {
+          this.setState({ message: value });
+        }
+        break;
+      default:
+        break;
+    }
+    if (this.state.error) {
+      this.setState({ error: false });
+    }
+  }
+
+  render() {
     return (
       <section id="contact">
         <div className="row">
-          <Fade duration={1000}>
-            <div className="main-col">
-              <h2>Send me a message.</h2>
-              <br />
-            </div>
-          </Fade>
+          <div className="main-col">
+            <h2>Send me a message.</h2>
+            <br />
+          </div>
           <div className="main-col">
             <form action="" method="post" id="contactForm" name="contactForm">
               <fieldset>
@@ -33,7 +97,7 @@ class Contact extends Component {
                     size="35"
                     id="contactName"
                     name="contactName"
-                    onChange={this.handleChange}
+                    onChange={this.handleChange.bind(this)}
                   />
                 </div>
 
@@ -47,7 +111,7 @@ class Contact extends Component {
                     size="35"
                     id="contactEmail"
                     name="contactEmail"
-                    onChange={this.handleChange}
+                    onChange={this.handleChange.bind(this)}
                   />
                 </div>
 
@@ -59,7 +123,7 @@ class Contact extends Component {
                     size="35"
                     id="contactSubject"
                     name="contactSubject"
-                    onChange={this.handleChange}
+                    onChange={this.handleChange.bind(this)}
                   />
                 </div>
 
@@ -72,23 +136,20 @@ class Contact extends Component {
                     rows="15"
                     id="contactMessage"
                     name="contactMessage"
+                    onChange={this.handleChange.bind(this)}
                   ></textarea>
                 </div>
 
                 <div>
-                  <button className="submit">Submit</button>
-                  <span id="image-loader">
-                    <img alt="" src="images/loader.gif" />
-                  </span>
+                  <button
+                    className="submit"
+                    onClick={this.sendContactEmail.bind(this)}
+                  >
+                    Submit
+                  </button>
                 </div>
               </fieldset>
             </form>
-
-            <div id="message-warning"> Error boy</div>
-            <div id="message-success">
-              <i className="fa fa-check"></i>Your message was sent, thank you!
-              <br />
-            </div>
           </div>
         </div>
       </section>

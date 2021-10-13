@@ -11,7 +11,7 @@ class Books extends Component {
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     axios
       .get(API_URL + "/book")
       .then((response) => {

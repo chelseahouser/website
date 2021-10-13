@@ -22,6 +22,7 @@ module.exports = {
     "import/first": "off",
     "react/prop-types": 0,
     "linebreak-style": "off",
+    "react/no-deprecated": "off",
     "prettier/prettier": [
       "error",
       {
