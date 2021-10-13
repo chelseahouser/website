@@ -28,8 +28,8 @@ class Books extends Component {
 
   buildBookList(book) {
     return (
-      <div key={book.title} href={book.link}>
-        <h3>{book.title}</h3>
+      <div key={book.title}>
+        <h3 onClick={()=> window.open(book.link, "_blank")}>{book.title}</h3>
         <p className="info">{book.author}</p>
         <p>{book.description}</p>
       </div>

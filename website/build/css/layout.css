@@ -274,6 +274,7 @@ ul#nav li.current a { color: #6e0e08; }
 }
 #resume h3 {
    font: 25px/30px 'opensans-bold', sans-serif;
+   color:#08686e;
 }
 
 #resume .header-col { padding-top: 9px; }
@@ -446,6 +447,11 @@ ul#nav li.current a { color: #6e0e08; }
 }
 #books h3 {
    font: 25px/30px 'opensans-bold', sans-serif;
+   color:#08686e;
+}
+#books h3:hover {
+   cursor: pointer;
+   color: #6e0e08;
 }
 
 #books .header-col { padding-top: 9px; }
