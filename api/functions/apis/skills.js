@@ -10,9 +10,8 @@ exports.getAllSkills = (request, response) => {
         data.forEach((doc) => {
           skills.push({
             skillId: doc.id,
-            name: doc.data().Name,
-            yearsExperience: doc.data().YearsExperience,
-            type: doc.data().Type,
+            name: doc.data().name,
+            type: doc.data().type,
           });
         });
         return response.json(skills);

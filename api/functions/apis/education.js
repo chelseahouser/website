@@ -9,10 +9,10 @@ exports.getAllEducation = (request, response) => {
         data.forEach((doc) => {
           education.push({
             educationId: doc.id,
-            school: doc.data().School,
-            degree: doc.data().Degree,
-            graduation: doc.data().Graduation,
-            description: doc.data().Description,
+            school: doc.data().school,
+            degree: doc.data().degree,
+            graduation: doc.data().graduation,
+            description: doc.data().description,
           });
         });
         return response.json(education);

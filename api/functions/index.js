@@ -8,11 +8,11 @@ app.use(function(req, res, next) {
   next();
 });
 
-// const {
-//   getAllBlogs,
-// } = require('./apis/blog');
+const {
+  getAllBlogs,
+} = require("./apis/blog");
 
-// app.get('/blog', getAllBlogs);
+app.get("/blog", getAllBlogs);
 
 const {
   getAllBooks,
@@ -20,23 +20,29 @@ const {
 
 app.get("/book", getAllBooks);
 
-// const {
-//   getAllEducation,
-// } = require('./apis/education');
+const {
+  getAllEducation,
+} = require("./apis/education");
 
-// app.get('/education', getAllEducation);
+app.get("/education", getAllEducation);
 
 
-// const {
-//   getAllSkills,
-// } = require('./apis/skills');
+const {
+  getAllSkills,
+} = require("./apis/skills");
 
-// app.get('/skill', getAllSkills);
+app.get("/skill", getAllSkills);
 
-// const {
-//   getAllWork,
-// } = require('./apis/work');
+const {
+  getAllWork,
+} = require("./apis/work");
 
-// app.get('/work', getAllWork);
+app.get("/work", getAllWork);
+
+const {
+  saveContactMessage,
+} = require("./apis/contact");
+
+app.post("/contact", saveContactMessage);
 
 exports.api = functions.https.onRequest(app);

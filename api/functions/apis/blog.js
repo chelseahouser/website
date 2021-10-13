@@ -3,17 +3,16 @@ const {db} = require("../util/admin");
 exports.getAllBlogs = (request, response) => {
   db
       .collection("blog")
-      .orderBy("Date", "desc")
       .get()
       .then((data) => {
         const blogs = [];
         data.forEach((doc) => {
           blogs.push({
             blogId: doc.id,
-            title: doc.data().Title,
-            post: doc.data().Post,
-            tags: doc.data().Tags,
-            sources: doc.data().Sources,
+            title: doc.data().title,
+            post: doc.data().post,
+            tags: doc.data().tags,
+            sources: doc.data().sources,
           });
         });
         return response.json(blogs);

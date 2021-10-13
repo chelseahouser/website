@@ -9,11 +9,12 @@ exports.getAllWork = (request, response) => {
         data.forEach((doc) => {
           work.push({
             workId: doc.id,
-            companyName: doc.data().CompanyName,
-            title: doc.data().Title,
-            description: doc.data().Description,
-            startDate: doc.data().StartDate,
-            endDate: doc.data().EndDate,
+            companyName: doc.data().companyName,
+            title: doc.data().title,
+            description: doc.data().description,
+            startDate: doc.data().startDate,
+            endDate: doc.data().endDate,
+            current: doc.data().current,
           });
         });
         return response.json(work);

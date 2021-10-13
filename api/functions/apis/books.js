@@ -14,8 +14,9 @@ exports.getAllBooks = (request, response) => {
             description: doc.data().description,
             currentlyReading: doc.data().currentlyReading,
             completedReading: doc.data().completedReading,
-            recommended: doc.data.recommended,
+            recommended: doc.data().recommended,
             toRead: doc.data().toRead,
+            link: doc.data().link,
           });
         });
         return response.json(books);
