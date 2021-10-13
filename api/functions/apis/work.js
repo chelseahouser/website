@@ -3,6 +3,7 @@ const {db} = require("../util/admin");
 exports.getAllWork = (request, response) => {
   db
       .collection("work")
+      .orderBy("startDate", "desc")
       .get()
       .then((data) => {
         const work = [];

@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { API_URL } from "../config";
-import moment from "react-moment";
+import moment from 'moment';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class Resume extends Component {
   constructor(props) {
@@ -14,38 +16,35 @@ class Resume extends Component {
     };
   }
 
+  error = () => toast.error("Something went wrong.");
+
   componentWillMount() {
     axios
       .get(API_URL + "/work")
       .then((response) => {
-        console.log(response.data);
         this.setState({
           work: response.data,
         });
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
+        this.error();
         this.setState({ errorMsg: "Error in retrieving the data" });
       });
 
     axios
       .get(API_URL + "/education")
       .then((response) => {
-        console.log(response.data);
         this.setState({
           education: response.data,
         });
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
+        this.error();
         this.setState({ errorMsg: "Error in retrieving the data" });
       });
   }
 
   buildWorkList(work) {
-    if (work.current) {
-      work.endDate = new moment();
-    }
     return (
       <div key={work.companyName}>
         <h3>{work.companyName}</h3>
@@ -53,9 +52,7 @@ class Resume extends Component {
           {work.title}
           <span>&bull;</span>{" "}
           <em className="date">
-            <moment from={work.startDate.seconds}>
-              {work.endDate.seconds}
-            </moment>
+            {new moment.unix(work.startDate._seconds).format("MMM YYYY")} - {work.current? "Current" : new moment.unix(work.endDate._seconds).format("MMM YYYY")}
           </em>
         </p>
         <p>{work.description}</p>
@@ -69,7 +66,7 @@ class Resume extends Component {
         <h3>{education.school}</h3>
         <p className="info">
           {education.degree} <span>&bull;</span>
-          <em className="date">{education.graduated}</em>
+          <em className="date">{ new moment.unix(education.graduation._seconds).format("YYYY") }</em>
         </p>
         <p>{education.description}</p>
       </div>
@@ -79,6 +76,21 @@ class Resume extends Component {
   render() {
     return (
       <section id="resume">
+        <ToastContainer />
+        <div className="row work">
+          <div className="three columns header-col">
+            <h1>
+              <span>Work</span>
+            </h1>
+          </div>
+
+          <div className="nine columns main-col">
+            {this.state.work.map((work) => {
+              return this.buildWorkList(work);
+            })}
+          </div>
+        </div>
+
         <div className="row education">
           <div className="three columns header-col">
             <h1>
@@ -94,20 +106,6 @@ class Resume extends Component {
                 })}
               </div>
             </div>
-          </div>
-        </div>
-
-        <div className="row work">
-          <div className="three columns header-col">
-            <h1>
-              <span>Work</span>
-            </h1>
-          </div>
-
-          <div className="nine columns main-col">
-            {this.state.work.map((work) => {
-              return this.buildWorkList(work);
-            })}
           </div>
         </div>
 

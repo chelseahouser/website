@@ -122,7 +122,7 @@ class Contact extends Component {
                     Email <span className="required">*</span>
                   </label>
                   <input
-                    type="text"
+                    type="email"
                     defaultValue=""
                     size="35"
                     id="contactEmail"

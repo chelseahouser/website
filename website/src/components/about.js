@@ -24,15 +24,12 @@ class About extends Component {
                 experience in consulting. I love to learn, play video games,
                 brew beer, and shower my pets with lots of love.
               </p>
-              <div className="row">
-                <div className="columns contact-details">
-                  <p>
-                    <a href="#contact" className="button">
-                      <i className="fa fa-download"></i>Contact Me
-                    </a>
-                  </p>
-                </div>
-              </div>
+              <br />
+              <p>
+                <a href="#contact" className="button">
+                  <i className="fa fa-download"></i>Contact Me
+                </a>
+              </p>
             </div>
           </div>
         </Fade>
