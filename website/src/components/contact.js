@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { API_URL } from "../config";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class Contact extends Component {
   constructor(props) {
@@ -14,34 +16,47 @@ class Contact extends Component {
     };
   }
 
-  validateMessage() {
-    return true;
-    // if (this.state.name != null && this.state.name != "") {
-    //   if (this.state.email != null && this.state.email != "") {
-    //     if (this.state.message != null && this.state.message != "") {
-    //       return true;
-    //     }
-    //   }
-    // }
-    // return false;
+  success = () => toast.success("Message Sent!");
+  error = () => toast.error("Something went wrong.");
+  missingRequiredFields = () => toast.error("Unable to send message. You are missing required fields.");
+
+  validateMessage(model) {
+    if (model.name != null && model.name != "") {
+      if (model.email != null && model.email != "") {
+        if (model.message != null && model.message != "") {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  clearForm() {
+
   }
 
   sendContactEmail(e) {
     e.preventDefault();
-    console.log(this.state);
-    if (this.validateMessage()) {
+    if (this.validateMessage(this.state)) {
       axios
         .post(API_URL + "/contact", this.state)
         .then((response) => {
           console.log(response.data);
+          document.getElementById("contactForm").reset();
+          this.setState({
+            email: "",
+            name: "",
+            message: "",
+            subject: ""
+          });
+          this.success();
         })
         .catch((error) => {
-          console.log(error);
-          this.setState({ errorMsg: "Error in sending the message" });
+          console.error(error);
+          this.error();
         });
     } else {
-      // TODO: Toast
-      //this.setState({ error: true });
+      this.missingRequiredFields();
     }
   }
 
@@ -72,13 +87,14 @@ class Contact extends Component {
         break;
     }
     if (this.state.error) {
-      this.setState({ error: false });
+      this.error();
     }
   }
 
   render() {
     return (
       <section id="contact">
+        <ToastContainer />
         <div className="row">
           <div className="main-col">
             <h2>Send me a message.</h2>
