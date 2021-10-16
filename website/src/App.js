@@ -1,36 +1,34 @@
-import React, { Component } from "react";
-import ReactGA from "react-ga";
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route} from "react-router-dom";
 import "./App.css";
-import Header from "./components/header";
-import Footer from "./components/footer";
-import About from "./components/about";
-import Resume from "./components/resume";
-import Blog from "./components/blog";
-import Books from "./components/books";
-import Contact from "./components/contact";
+import Home from "./pages/home";
+import BlogList from "./pages/blogList";
+// import BlogPost from "./pages/blogPost";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-
-    ReactGA.initialize("UA-110570651-1");
-    ReactGA.pageview(window.location.pathname);
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <Header />
-        <About />
-        <Resume />
-        <Blog />
-        <Books />
-        <Contact />
-        <Footer />
-      </div>
-    );
-  }
+function App() {
+	return (
+			<Router>
+				<div>
+					<Switch>
+						<Route exact path="/" component={Home} />
+						<Route exact path="/blogs" component={BlogList} />
+						{/* <Route exact path="/blog/:id" component={BlogPost} id={this.props.id} /> */}
+					</Switch>
+				</div>
+			</Router>
+	);
 }
 
 export default App;
+
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {};
+
+  //   ReactGA.initialize("UA-110570651-1");
+  //   ReactGA.pageview(window.location.pathname);
+  // }
+

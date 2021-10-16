@@ -11,9 +11,11 @@ app.use(function(req, res, next) {
 const {
   getAllBlogs,
   getBlogById,
+  getCountOfBlogs,
 } = require("./apis/blog");
 
 app.get("/blogs", getAllBlogs);
+app.get("/blogs/:count", getCountOfBlogs);
 app.get("/blog/:blogid", getBlogById);
 
 const {

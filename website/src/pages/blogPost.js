@@ -1,34 +1,36 @@
 import React, { Component } from "react";
-import "./App.css";
 import axios from "axios";
 import { API_URL } from "../config";
-import moment from 'moment';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class BlogPost extends Component {
   constructor(props) {
     super(props);
-    this.state = {blog: {}};
+    this.state = {blog: {}, id: this.props.match.params.id};
   }
+
+  error = () => toast.error("Something went wrong.");
 
   componentWillMount() {
     axios
-      .get(API_URL + "/blog/" + this.props.id)
+      .get(API_URL + "/blog/" + this.state.id)
       .then((response) => {
-        console.log(response.data);
         this.setState({
           blogPosts: response.data,
         });
       })
       .catch((error) => {
-        console.log(error);
-        this.setState({ errorMsg: "Error in retrieving the data" });
+        this.error();
       });
   }
 
   render() {
     return (
       <div className="App">
+        <ToastContainer />
         <section id="blog">
+            <h1>{this.state.id}</h1>
             <h2>{this.state.blog.title}</h2>
         </section>
       </div>

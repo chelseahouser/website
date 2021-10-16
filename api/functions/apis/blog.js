@@ -25,6 +25,33 @@ exports.getAllBlogs = (request, response) => {
       });
 };
 
+exports.getCountOfBlogs = (request, response) => {
+  db
+      .collection("blog")
+      .orderBy("date", "desc")
+      .limit(request.params.count*1)
+      .get()
+      .then((data) => {
+        const blogs = [];
+        data.forEach((doc) => {
+          blogs.push({
+            blogId: doc.id,
+            title: doc.data().title,
+            post: doc.data().post,
+            tags: doc.data().tags,
+            sources: doc.data().sources,
+            date: doc.data().date,
+            description: doc.data().description,
+          });
+        });
+        return response.json(blogs);
+      })
+      .catch((err) => {
+        console.error(err);
+        return response.status(500).json({error: err.code});
+      });
+};
+
 exports.getBlogById = (request, response) => {
   db
       .collection("blog")

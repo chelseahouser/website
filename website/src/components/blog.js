@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import { API_URL } from "../config";
 import moment from 'moment';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class Blog extends Component {
   constructor(props) {
@@ -12,18 +14,18 @@ class Blog extends Component {
     };
   }
 
+  error = () => toast.error("Something went wrong.");
+
   componentWillMount() {
     axios
-      .get(API_URL + "/blogs")
+      .get(API_URL + "/blogs/3")
       .then((response) => {
-        console.log(response.data);
         this.setState({
           blogPosts: response.data,
         });
       })
-      .catch((error) => {
-        console.log(error);
-        this.setState({ errorMsg: "Error in retrieving the data" });
+      .catch(() => {
+        this.error();
       });
   }
 
@@ -50,9 +52,19 @@ class Blog extends Component {
   render() {
     return (
       <section id="blog">
+          <ToastContainer />
         {this.state.blogPosts.map((blog) => {
           return this.buildBlogPost(blog);
         })}
+        <div className="row post">
+          <a href="/blogs">        
+            <div className="header-col">
+              <h1>
+                <span>See More</span>
+              </h1>
+            </div>
+          </a>
+        </div>
       </section>
     );
   }
