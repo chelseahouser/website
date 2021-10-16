@@ -30,8 +30,12 @@ class Books extends Component {
     return (
       <div key={book.title}>
         <h3 onClick={()=> window.open(book.link, "_blank")}>{book.title}</h3>
-        <p className="info">{book.author}</p>
-        <p>{book.description}</p>
+        <p className="info">
+          {book.author}          
+          <span>&bull;</span>{" "}
+          <em className="date">
+            <a href={book.link} >Link</a>  
+          </em><br />{book.description}</p>
       </div>
     );
   }
@@ -39,11 +43,6 @@ class Books extends Component {
   render() {
     return (
       <section id="books">
-        <div className="row">
-          <div className="main-col">
-            <h2>Books</h2>
-          </div>
-        </div>
         <div className="row currentlyReading">
           <div className="three columns header-col">
             <h1>

@@ -1,20 +1,19 @@
 const {db} = require("../util/admin");
 
-exports.getAllSkills = (request, response) => {
+exports.getAllCertifications = (request, response) => {
   db
-      .collection("skills")
-      .orderBy("createdAt", "desc")
+      .collection("certifications")
       .get()
       .then((data) => {
-        const skills = [];
+        const certifications = [];
         data.forEach((doc) => {
-          skills.push({
-            skillId: doc.id,
+          certifications.push({
+            certificationId: doc.id,
             name: doc.data().name,
-            type: doc.data().type,
+            date: doc.data().date,
           });
         });
-        return response.json(skills);
+        return response.json(certifications);
       })
       .catch((err) => {
         console.error(err);

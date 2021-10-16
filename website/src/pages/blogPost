@@ -1,0 +1,39 @@
+import React, { Component } from "react";
+import "./App.css";
+import axios from "axios";
+import { API_URL } from "../config";
+import moment from 'moment';
+
+class BlogPost extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {blog: {}};
+  }
+
+  componentWillMount() {
+    axios
+      .get(API_URL + "/blog/" + this.props.id)
+      .then((response) => {
+        console.log(response.data);
+        this.setState({
+          blogPosts: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+        this.setState({ errorMsg: "Error in retrieving the data" });
+      });
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <section id="blog">
+            <h2>{this.state.blog.title}</h2>
+        </section>
+      </div>
+    );
+  }
+}
+
+export default BlogPost;

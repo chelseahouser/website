@@ -13,9 +13,36 @@ exports.getAllBlogs = (request, response) => {
             post: doc.data().post,
             tags: doc.data().tags,
             sources: doc.data().sources,
+            date: doc.data().date,
+            description: doc.data().description,
           });
         });
         return response.json(blogs);
+      })
+      .catch((err) => {
+        console.error(err);
+        return response.status(500).json({error: err.code});
+      });
+};
+
+exports.getBlogById = (request, response) => {
+  db
+      .collection("blog")
+      .doc(`${request.params.blogid}`)
+      .get()
+      .then((data) => {
+        if (!data.exists || data == null || data == undefined) {
+          return response.status(404).json({message: "Blog post not found."});
+        }
+        return response.json({
+          blogId: data.id,
+          title: data.data().title,
+          post: data.data().post,
+          tags: data.data().tags,
+          sources: data.data().sources,
+          date: data.data().date,
+          description: data.data().description,
+        });
       })
       .catch((err) => {
         console.error(err);

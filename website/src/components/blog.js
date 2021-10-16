@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { API_URL } from "../config";
+import moment from 'moment';
 
 class Blog extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class Blog extends Component {
 
   componentWillMount() {
     axios
-      .get(API_URL + "/blog")
+      .get(API_URL + "/blogs")
       .then((response) => {
         console.log(response.data);
         this.setState({
@@ -28,29 +29,27 @@ class Blog extends Component {
 
   buildBlogPost(blog) {
     return (
-      <div className="row currentlyReading">
+      <div className="row post">
         <div className="header-col">
           <h1>
             <span>{blog.title}</span>
           </h1>
         </div>
 
-        <div className="nine columns main-col">
-          <div className="row item">
-            <div className="twelve columns">{blog.post[0]}</div>
-          </div>
-        </div>
+        <p className="info">
+          {new moment.unix(blog.date._seconds).format("MMM YYYY")}
+          <span>&bull;</span>{" "}
+          <em className="date">
+            {blog.tags.join(', ')}  
+          </em>
+        </p>
+        <p>{blog.description}</p>
       </div>
     );
   }
   render() {
     return (
       <section id="blog">
-        <div className="row">
-          <div className="main-col">
-            <h2>Blog Posts</h2>
-          </div>
-        </div>
         {this.state.blogPosts.map((blog) => {
           return this.buildBlogPost(blog);
         })}

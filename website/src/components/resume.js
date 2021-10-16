@@ -13,6 +13,7 @@ class Resume extends Component {
       work: [],
       skills: [],
       education: [],
+      certifications: []
     };
   }
 
@@ -36,6 +37,18 @@ class Resume extends Component {
       .then((response) => {
         this.setState({
           education: response.data,
+        });
+      })
+      .catch(() => {
+        this.error();
+        this.setState({ errorMsg: "Error in retrieving the data" });
+      });
+
+      axios
+      .get(API_URL + "/certification")
+      .then((response) => {
+        this.setState({
+          certifications: response.data,
         });
       })
       .catch(() => {
@@ -69,6 +82,17 @@ class Resume extends Component {
           <em className="date">{ new moment.unix(education.graduation._seconds).format("YYYY") }</em>
         </p>
         <p>{education.description}</p>
+      </div>
+    );
+  }
+
+  buildCertificationList(certification) {
+    return (
+      <div key={certification.name}>
+        <h3>{certification.name}</h3>
+        <p className="info">
+          <em className="date">{ new moment.unix(certification.date._seconds).format("YYYY") }</em>
+        </p>
       </div>
     );
   }
@@ -120,6 +144,24 @@ class Resume extends Component {
             <p></p>
 
             <ul className="skills"></ul>
+          </div>
+        </div>
+
+        <div className="row certifications">
+          <div className="three columns header-col">
+            <h1>
+              <span>Certifications</span>
+            </h1>
+          </div>
+
+          <div className="nine columns main-col">
+            <div className="row item">
+              <div className="twelve columns">
+                {this.state.certifications.map((certification) => {
+                  return this.buildCertificationList(certification);
+                })}
+              </div>
+            </div>
           </div>
         </div>
       </section>

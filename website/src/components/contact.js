@@ -97,61 +97,52 @@ class Contact extends Component {
         <ToastContainer />
         <div className="row">
           <div className="main-col">
-            <h2>Send me a message.</h2>
+            <h2>Send me a message</h2>
             <br />
           </div>
           <div className="main-col">
             <form action="" method="post" id="contactForm" name="contactForm">
               <fieldset>
                 <div>
-                  <label htmlFor="contactName">
-                    Name <span className="required">*</span>
-                  </label>
                   <input
                     type="text"
                     defaultValue=""
-                    size="35"
                     id="contactName"
                     name="contactName"
+                    placeholder="Name (Required)"
                     onChange={this.handleChange.bind(this)}
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="contactEmail">
-                    Email <span className="required">*</span>
-                  </label>
                   <input
                     type="email"
                     defaultValue=""
-                    size="35"
                     id="contactEmail"
                     name="contactEmail"
+                    placeholder="Email (Required)"
                     onChange={this.handleChange.bind(this)}
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="contactSubject">Subject</label>
                   <input
                     type="text"
                     defaultValue=""
-                    size="35"
                     id="contactSubject"
                     name="contactSubject"
+                    placeholder="Subject"
                     onChange={this.handleChange.bind(this)}
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="contactMessage">
-                    Message <span className="required">*</span>
-                  </label>
                   <textarea
                     cols="50"
-                    rows="15"
+                    rows="10"
                     id="contactMessage"
                     name="contactMessage"
+                    placeholder="Message (Required)"
                     onChange={this.handleChange.bind(this)}
                   ></textarea>
                 </div>
