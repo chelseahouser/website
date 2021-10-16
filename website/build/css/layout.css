@@ -324,8 +324,15 @@ ul#nav li.current a { color: #6e0e08; }
    border-bottom: 3px solid #08356e;
    padding-bottom: 6px;
 }
+
 #blog h3 {
    font: 25px/30px 'opensans-bold', sans-serif;
+   color:#fff;
+}
+
+#blog h3:hover {
+   cursor: pointer;
+   color: #6e0e08;
 }
 
 #blog .header-col { padding-top: 9px; }

@@ -32,9 +32,7 @@ class BlogList extends Component {
       return (
         <div className="row post">
           <div className="header-col">
-            <h1>
-              <span>{blog.title}</span>
-            </h1>
+            <h3 onClick={()=> window.open("/blog/" + blog.blogId)}>{blog.title}</h3>
           </div>
   
           <p className="info">

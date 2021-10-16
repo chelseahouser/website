@@ -6,7 +6,7 @@ import {
 import "./App.css";
 import Home from "./pages/home";
 import BlogList from "./pages/blogList";
-// import BlogPost from "./pages/blogPost";
+import BlogPost from "./pages/blogPost";
 
 function App() {
 	return (
@@ -15,7 +15,7 @@ function App() {
 					<Switch>
 						<Route exact path="/" component={Home} />
 						<Route exact path="/blogs" component={BlogList} />
-						{/* <Route exact path="/blog/:id" component={BlogPost} id={this.props.id} /> */}
+						<Route exact path="/blog/:id" component={BlogPost} />
 					</Switch>
 				</div>
 			</Router>

@@ -17,10 +17,10 @@ class BlogPost extends Component {
       .get(API_URL + "/blog/" + this.state.id)
       .then((response) => {
         this.setState({
-          blogPosts: response.data,
+          blog: response.data,
         });
       })
-      .catch((error) => {
+      .catch(() => {
         this.error();
       });
   }
@@ -30,7 +30,6 @@ class BlogPost extends Component {
       <div className="App">
         <ToastContainer />
         <section id="blog">
-            <h1>{this.state.id}</h1>
             <h2>{this.state.blog.title}</h2>
         </section>
       </div>

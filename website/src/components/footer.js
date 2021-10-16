@@ -18,6 +18,15 @@ class Footer extends Component {
                     <i className={"fa fa-linkedin"}></i>
                   </a>
                 </li>
+                <li key="github">
+                  <a
+                    href="https://github.com/chelseahouser"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    <i className={"fa fa-github"}></i>
+                  </a>
+                </li>
               </ul>
 
               <ul className="copyright">

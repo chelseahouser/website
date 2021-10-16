@@ -33,9 +33,7 @@ class Blog extends Component {
     return (
       <div className="row post">
         <div className="header-col">
-          <h1>
-            <span>{blog.title}</span>
-          </h1>
+          <h3 onClick={()=> window.open("/blog/" + blog.blogId)}>{blog.title}</h3>
         </div>
 
         <p className="info">
@@ -56,14 +54,10 @@ class Blog extends Component {
         {this.state.blogPosts.map((blog) => {
           return this.buildBlogPost(blog);
         })}
-        <div className="row post">
-          <a href="/blogs">        
+        <div className="row post">      
             <div className="header-col">
-              <h1>
-                <span>See More</span>
-              </h1>
+              <h3 onClick={()=> window.open("/blogs")}>See More</h3>
             </div>
-          </a>
         </div>
       </section>
     );
