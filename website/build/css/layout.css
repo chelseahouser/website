@@ -464,7 +464,7 @@ ul#nav li.current a { color: #6e0e08; }
 #books .header-col { padding-top: 9px; }
 #books .main-col { padding-right: 10%; }
 
-.currentlyReading, .recommended{
+.currentlyReading, .recommended, .localStore{
    margin-bottom: 48px;
    padding-bottom: 24px;
    border-bottom: 1px solid #E8E8E8;
