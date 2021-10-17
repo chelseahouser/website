@@ -4,6 +4,8 @@ import { API_URL } from "../config";
 import moment from 'moment';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from "../components/footer";
+import {withRouter} from 'react-router-dom';
 
 class BlogList extends Component {
     constructor(props) {
@@ -32,7 +34,7 @@ class BlogList extends Component {
       return (
         <div className="row post">
           <div className="header-col">
-            <h3 onClick={()=> window.open("/blog/" + blog.blogId)}>{blog.title}</h3>
+            <h3 onClick={()=> this.props.history.push("/blog/" + blog.blogId)}>{blog.title}</h3>
           </div>
   
           <p className="info">
@@ -51,14 +53,32 @@ class BlogList extends Component {
       return (
         <div className="App">
           <ToastContainer />
+          <nav id="nav-wrap">
+          <a className="mobile-btn" href="#nav-wrap" title="Show navigation">
+            Show navigation
+          </a>
+          <a className="mobile-btn" href="#home" title="Hide navigation">
+            Hide navigation
+          </a>
+
+          <ul id="nav" className="nav">
+            <li>
+              <a href="/#home">
+                Home
+              </a>
+            </li>
+
+          </ul>
+        </nav>
           <section id="blog">
             {this.state.blogPosts.map((blog) => {
               return this.buildBlogPost(blog);
             })}   
          </section>
+         <Footer />
         </div>
       );
     }
   }
   
-  export default BlogList;
+  export default withRouter(BlogList);

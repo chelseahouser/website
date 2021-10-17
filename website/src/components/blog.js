@@ -4,6 +4,7 @@ import { API_URL } from "../config";
 import moment from 'moment';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {withRouter} from 'react-router-dom';
 
 class Blog extends Component {
   constructor(props) {
@@ -33,7 +34,7 @@ class Blog extends Component {
     return (
       <div className="row post">
         <div className="header-col">
-          <h3 onClick={()=> window.open("/blog/" + blog.blogId)}>{blog.title}</h3>
+          <h3 onClick={()=> this.props.history.push("/blog/" + blog.blogId)}>{blog.title}</h3>
         </div>
 
         <p className="info">
@@ -56,7 +57,7 @@ class Blog extends Component {
         })}
         <div className="row post">      
             <div className="header-col">
-              <h3 onClick={()=> window.open("/blogs")}>See More</h3>
+              <h3 onClick={()=> this.props.history.push("/blogs")}>See More</h3>
             </div>
         </div>
       </section>
@@ -64,4 +65,4 @@ class Blog extends Component {
   }
 }
 
-export default Blog;
+export default withRouter(Blog);
