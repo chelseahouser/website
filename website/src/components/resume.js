@@ -29,7 +29,6 @@ class Resume extends Component {
       })
       .catch(() => {
         this.error();
-        this.setState({ errorMsg: "Error in retrieving the data" });
       });
 
     axios
@@ -41,7 +40,17 @@ class Resume extends Component {
       })
       .catch(() => {
         this.error();
-        this.setState({ errorMsg: "Error in retrieving the data" });
+      });
+
+      axios
+      .get(API_URL + "/skill")
+      .then((response) => {
+        this.setState({
+          skills: response.data,
+        });
+      })
+      .catch(() => {
+        this.error();
       });
 
       axios
@@ -53,7 +62,6 @@ class Resume extends Component {
       })
       .catch(() => {
         this.error();
-        this.setState({ errorMsg: "Error in retrieving the data" });
       });
   }
 
@@ -97,6 +105,15 @@ class Resume extends Component {
     );
   }
 
+  buildSkillList(skills) {
+    return skills.forEach(skill => {
+      <div key={skill.type}>
+        <h3>{skill.type}</h3>
+        <p>{skill.name}</p>
+      </div>
+    });
+  }
+
   render() {
     return (
       <section id="resume">
@@ -133,7 +150,7 @@ class Resume extends Component {
           </div>
         </div>
 
-        <div className="row skill">
+        {/* <div className="row skill">
           <div className="three columns header-col">
             <h1>
               <span>Skills</span>
@@ -141,11 +158,13 @@ class Resume extends Component {
           </div>
 
           <div className="nine columns main-col">
-            <p></p>
-
-            <ul className="skills"></ul>
+            <div className="row item">
+              <div className="twelve columns">
+                {this.buildSkillList(this.state.skills)}
+              </div>
+            </div>
           </div>
-        </div>
+        </div> */}
 
         <div className="row certifications">
           <div className="three columns header-col">
