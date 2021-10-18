@@ -20,9 +20,17 @@ class About extends Component {
               <h2>About Me</h2>
 
               <p>
-                I am a Senior Software Developer with over a decade of
-                experience in consulting. I love to learn, play video games,
-                brew beer, and shower my pets with lots of love.
+                 I am a full stack developer with over a decade of experience 
+                 working in consulting. My work has exposed me to a constant 
+                 variety of projects, industries and technologies. Growing and 
+                 thriving in this fast paced environment, I am constantly 
+                 putting my skills to the test solving problems for my clients. 
+                 In my time working I have developed projects to identify 
+                 disease outbreaks in Africa, predict the next oil boom in 
+                 Texas, and connect people to auto body shops across the world. 
+                 I enjoy the challenge of new problems to solve and new 
+                 technologies to conquer. In my free time I am often spoiling 
+                 my pets, brewing beer, and running a guild in Final Fantasy XIV.
               </p>
               <br />
               <p>
