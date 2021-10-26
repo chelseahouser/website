@@ -14,4 +14,10 @@ To deploy ui -> navigate to /website and run 'npm run build' and 'firebase deplo
 
 # additional details
 Theme:
-Primary: #https://www.color-hex.com/color/08686e#color-schemes
+Primary: #08686e
+Secondary: #9cc2c5
+Links:#08356e
+Highlight:#6e0e08
+Error: 	#6e0e08
+Success: #086e41
+Warning: #686e08

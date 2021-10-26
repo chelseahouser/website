@@ -11,7 +11,7 @@ class Footer extends Component {
               <ul className="social-links">
                 <li key="linkedin">
                   <a
-                    href="https://www.linkedin.com/in/chelsea-houser-5884b765"
+                    href="https://www.linkedin.com/in/chelsea-houser/"
                     target="_blank"
                     rel="noreferrer noopener"
                   >
