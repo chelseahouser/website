@@ -1,4 +1,3 @@
-require("dotenv").config();
 const {db} = require("../util/admin");
 const nodemailer = require("nodemailer");
 const fetch = require("isomorphic-fetch");
@@ -37,7 +36,7 @@ exports.saveContactMessage = (request, response) => {
       .then((response) => response.json())
       .then((googleResponse) => {
         if (googleResponse.success) {
-        // save to database
+          // save to database
           const newContactMessage = {
             name: request.body.name,
             email: request.body.email,
