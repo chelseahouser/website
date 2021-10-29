@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { API_URL } from "../config";
+import { ToastContainer, toast } from 'react-toastify';
 
 class Books extends Component {
   constructor(props) {
@@ -11,18 +12,18 @@ class Books extends Component {
     };
   }
 
+  error = () => toast.error("Something went wrong.");
+
   componentWillMount() {
     axios
       .get(API_URL + "/book")
       .then((response) => {
-        console.log(response.data);
         this.setState({
           books: response.data,
         });
       })
-      .catch((error) => {
-        console.log(error);
-        this.setState({ errorMsg: "Error in retrieving the data" });
+      .catch(() => {
+        this.error();
       });
   }
 
@@ -43,6 +44,7 @@ class Books extends Component {
   render() {
     return (
       <section id="books">
+        <ToastContainer />
         <div className="row localStore">
           <div className="three columns header-col">
             <h1>

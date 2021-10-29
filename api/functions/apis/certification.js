@@ -16,7 +16,6 @@ exports.getAllCertifications = (request, response) => {
         return response.json(certifications);
       })
       .catch((err) => {
-        console.error(err);
         return response.status(500).json({error: err.code});
       });
 };

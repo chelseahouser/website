@@ -18,7 +18,6 @@ exports.getAllEducation = (request, response) => {
         return response.json(education);
       })
       .catch((err) => {
-        console.error(err);
         return response.status(500).json({error: err.code});
       });
 };

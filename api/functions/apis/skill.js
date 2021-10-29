@@ -16,7 +16,6 @@ exports.getAllSkills = (request, response) => {
         return response.json(skills);
       })
       .catch((err) => {
-        console.error(err);
         return response.status(500).json({error: err.code});
       });
 };

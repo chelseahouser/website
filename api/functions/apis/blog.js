@@ -20,7 +20,6 @@ exports.getAllBlogs = (request, response) => {
         return response.json(blogs);
       })
       .catch((err) => {
-        console.error(err);
         return response.status(500).json({error: err.code});
       });
 };
@@ -47,7 +46,6 @@ exports.getCountOfBlogs = (request, response) => {
         return response.json(blogs);
       })
       .catch((err) => {
-        console.error(err);
         return response.status(500).json({error: err.code});
       });
 };
@@ -72,7 +70,6 @@ exports.getBlogById = (request, response) => {
         });
       })
       .catch((err) => {
-        console.error(err);
         return response.status(500).json({error: err.code});
       });
 };

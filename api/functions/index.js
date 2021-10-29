@@ -1,11 +1,11 @@
 const functions = require("firebase-functions");
 const app = require("express")();
+const cors = require("cors")({origin: "*"});
 
 app.use(function(req, res, next) {
-  res.set("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers",
-      "Origin, X-Requested-With, Content-Type, Accept");
-  next();
+  cors(req, res, () => {
+    next();
+  });
 });
 
 const {

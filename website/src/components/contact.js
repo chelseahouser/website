@@ -37,33 +37,33 @@ class Contact extends Component {
 
   sendContactEmail(e) {
     e.preventDefault();
-    window.grecaptcha.ready(function() {
-      window.grecaptcha.execute('6LczSNYcAAAAAPYxNRzll2HvZ5RIJLBIRU8OLN6w', {action: 'submit'}).then(function(token) {
-        if (this.validateMessage(this.state)) {
-          this.setState({token: token});
-          axios
-            .post(API_URL + "/contact", this.state)
-            .then((response) => {
-              console.log(response.data);
-              document.getElementById("contactForm").reset();
-              this.setState({
-                email: "",
-                name: "",
-                message: "",
-                subject: "",
-                token: ""
-              });
-              this.success();
-            })
-            .catch((error) => {
-              console.error(error);
-              this.error();
-            });
-        } else {
-          this.missingRequiredFields();
-        }
+    var token = window.grecaptcha.ready(function() {
+      return window.grecaptcha.execute('6LczSNYcAAAAAPYxNRzll2HvZ5RIJLBIRU8OLN6w', {action: 'submit'}).then(function(token) {
+        return token;
       });
     });
+
+    this.setState({token: token});
+    if (this.validateMessage(this.state)) {
+      axios
+        .post(API_URL + "/contact", this.state)
+        .then((response) => {
+          document.getElementById("contactForm").reset();
+          this.setState({
+            email: "",
+            name: "",
+            message: "",
+            subject: "",
+            token: ""
+          });
+          this.success();
+        })
+        .catch((error) => {
+          this.error();
+        });
+    } else {
+      this.missingRequiredFields();
+    }
   }
 
   handleChange(e) {

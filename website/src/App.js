@@ -7,6 +7,9 @@ import "./App.css";
 import Home from "./pages/home";
 import BlogList from "./pages/blogList";
 import BlogPost from "./pages/blogPost";
+// const { initializeApp } = require("firebase/app");
+// const { initializeAppCheck, ReCaptchaV3Provider } = require("firebase/app-check");
+
 
 function App() {
 	return (
@@ -23,12 +26,4 @@ function App() {
 }
 
 export default App;
-
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {};
-
-  //   ReactGA.initialize("UA-110570651-1");
-  //   ReactGA.pageview(window.location.pathname);
-  // }
 
