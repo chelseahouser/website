@@ -62,7 +62,7 @@ class Header extends Component {
             </Fade>
             <Fade bottom duration={1200}>
               <h3>
-                Senior Software Developer and Consultant at Rural Sourcing Inc
+                Senior Software Engineer and Consultant at Rural Sourcing Inc
               </h3>
             </Fade>
             <hr />

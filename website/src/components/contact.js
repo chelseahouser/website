@@ -47,7 +47,7 @@ class Contact extends Component {
     if (this.validateMessage(this.state)) {
       axios
         .post(API_URL + "/contact", this.state)
-        .then((response) => {
+        .then(() => {
           document.getElementById("contactForm").reset();
           this.setState({
             email: "",
@@ -58,7 +58,7 @@ class Contact extends Component {
           });
           this.success();
         })
-        .catch((error) => {
+        .catch(() => {
           this.error();
         });
     } else {
