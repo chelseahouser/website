@@ -20,17 +20,15 @@ class About extends Component {
               <h2>About Me</h2>
 
               <p>
-                I am a full-stack developer with over a decade of experience 
-                working in consulting. My work has exposed me to an endless 
-                variety of projects, industries, and technologies. Growing 
-                and thriving in this fast-paced environment, I am constantly 
-                putting my skills to the test, solving problems for my clients. 
-                In my time working, I have developed projects to identify 
-                 disease outbreaks in Africa, predict the next oil boom in 
-                 Texas, and connect people to auto body shops across the world. 
-                 I enjoy the challenge of new problems to solve and new 
-                 technologies to conquer. I am often spoiling my pets, brewing 
-                 beer, and running a guild in Final Fantasy XIV in my free time.
+                I am a full-stack developer with over a decade of experience working in 
+                consulting. My work has exposed me to a variety of projects, industries, 
+                and technologies. Growing and thriving in this fast-paced environment, 
+                I am constantly putting my skills to the test, solving problems for my 
+                clients. In my time working, I have developed projects to identify disease 
+                outbreaks in Africa, predict the next oil boom in Texas, and connect 
+                people to auto body shops across the world. I enjoy the challenge of new 
+                problems to solve and new technologies to conquer. I am often spoiling my 
+                pets, brewing beer, and running a guild in Final Fantasy XIV in my free time.
               </p>
               <br />
               <p>
