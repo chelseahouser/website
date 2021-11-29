@@ -35,11 +35,11 @@ class Header extends Component {
               </a>
             </li>
 
-            <li>
+            {/* <li>
               <a className="smoothscroll" href="#blog">
                 Blog
               </a>
-            </li>
+            </li> */}
 
             <li>
               <a className="smoothscroll" href="#books">

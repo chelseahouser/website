@@ -4,7 +4,7 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import About from "../components/about";
 import Resume from "../components/resume";
-import Blog from "../components/blog";
+// import Blog from "../components/blog";
 import Books from "../components/books";
 import Contact from "../components/contact";
 
@@ -23,7 +23,7 @@ class Home extends Component {
         <Header />
         <About />
         <Resume />
-        <Blog />
+        {/* <Blog /> */}
         <Books />
         <Contact />
         <Footer />
