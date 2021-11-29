@@ -58,12 +58,11 @@ exports.saveContactMessage = (request, response) => {
 
   // email
   const emailData = {
-    from: request.body.name + " <" + request.body.email + ">",
+    from: "\"CHOUSER Website\" website@chelseahouser.com",
+    replyTo: "\"" + request.body.name + "\" " + request.body.email,
     to: "website@chelseahouser.com",
-    message: {
-      subject: request.body.subject,
-      text: request.body.message,
-    },
+    subject: request.body.subject,
+    text: request.body.message,
   };
 
   transporter.sendMail(emailData);
