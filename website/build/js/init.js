@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 jQuery(document).ready(function ($) {
   var time = 380;
   setTimeout(function () {

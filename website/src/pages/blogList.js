@@ -1,84 +1,59 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { API_URL } from "../config";
 import moment from 'moment';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { failedToLoadData } from '../utilities/toastMessages';
 import Footer from "../components/footer";
-import {withRouter} from 'react-router-dom';
+import { TitleNavigation } from "../utilities/titleNavigation";
+import BlogNav from "../components/blogNavigation";
 
-class BlogList extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        blogPosts: []
-      };
-    }
+function BlogList() {
+  const [blogPosts, setBlogPosts] = useState();
 
-    error = () => toast.error("Something went wrong.");
+  useEffect(() => {
+    axios
+      .get(API_URL + "/blogs")
+      .then((response) => {
+        setBlogPosts(response.data);
+      })
+      .catch(() => {
+        failedToLoadData();
+      });
+  }, []);
 
-    componentWillMount() {
-      axios
-        .get(API_URL + "/blogs")
-        .then((response) => {
-          this.setState({
-            blogPosts: response.data,
-          });
-        })
-        .catch(() => {
-          this.error();
-        });
-    }
-  
-    buildBlogPost(blog) {
-      return (
-        <div className="row post">
-          <div className="header-col">
-            <h3 onClick={()=> this.props.history.push("/blog/" + blog.blogId)}>{blog.title}</h3>
-          </div>
-  
-          <p className="info">
-            {new moment.unix(blog.date._seconds).format("MMM YYYY")}
-            <span>&bull;</span>{" "}
-            <em className="date">
-              {blog.tags.join(', ')}  
-            </em>
-          </p>
-          <p>{blog.description}</p>
+  const buildBlogPost = (blog) => {
+    return (
+      <div className="row post">
+        <div className="header-col">
+          {TitleNavigation(blog.blogId, blog.title)}
         </div>
-      );
-    }
 
-    render() {
-      return (
-        <div className="App">
-          <ToastContainer />
-          <nav id="nav-wrap">
-          <a className="mobile-btn" href="#nav-wrap" title="Show navigation">
-            Show navigation
-          </a>
-          <a className="mobile-btn" href="#home" title="Hide navigation">
-            Hide navigation
-          </a>
+        <p className="info">
+          {new moment.unix(blog.date._seconds).format("MMM YYYY")}
+          <span>&bull;</span>{" "}
+          <em className="date">
+            {blog.tags.join(', ')}  
+          </em>
+        </p>
+        <p>{blog.description}</p>
+      </div>
+    );
+  };
 
-          <ul id="nav" className="nav">
-            <li>
-              <a href="/#home">
-                Home
-              </a>
-            </li>
-
-          </ul>
-        </nav>
-          <section id="blog">
-            {this.state.blogPosts.map((blog) => {
-              return this.buildBlogPost(blog);
-            })}   
-         </section>
-         <Footer />
-        </div>
-      );
-    }
-  }
+  return (
+    <div className="App">
+      <ToastContainer />
+      <BlogNav />
+      <section id="blog">
+        {blogPosts ? blogPosts.map((blog) => {
+          return buildBlogPost(blog);
+        }) : ""}   
+      </section>
+      <Footer />
+    </div>
+  );
+}
   
-  export default withRouter(BlogList);
+export default BlogList;

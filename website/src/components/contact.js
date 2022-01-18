@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import axios from "axios";
-import { API_URL } from "../config";
-import { ToastContainer, toast } from 'react-toastify';
+// import axios from "axios";
+// import { API_URL, API_KEY } from "../config";
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { error } from '../utilities/toastMessages';
 
 class Contact extends Component {
   constructor(props) {
@@ -15,10 +16,6 @@ class Contact extends Component {
       subject: "",
     };
   }
-
-  success = () => toast.success("Message Sent!");
-  error = () => toast.error("Something went wrong.");
-  missingRequiredFields = () => toast.error("Unable to send message. You are missing required fields.");
 
   validateMessage(model) {
     if (model.name != null && model.name != "") {
@@ -37,33 +34,47 @@ class Contact extends Component {
 
   sendContactEmail(e) {
     e.preventDefault();
-    var token = window.grecaptcha.ready(function() {
-      return window.grecaptcha.execute('6LczSNYcAAAAAPYxNRzll2HvZ5RIJLBIRU8OLN6w', {action: 'submit'}).then(function(token) {
-        return token;
-      });
-    });
 
-    this.setState({token: token});
-    if (this.validateMessage(this.state)) {
-      axios
-        .post(API_URL + "/contact", this.state)
-        .then(() => {
-          document.getElementById("contactForm").reset();
-          this.setState({
-            email: "",
-            name: "",
-            message: "",
-            subject: "",
-            token: ""
-          });
-          this.success();
-        })
-        .catch(() => {
-          this.error();
-        });
-    } else {
-      this.missingRequiredFields();
-    }
+    //Secret key provided by Google
+    // const apiKey = API_KEY;
+    // const apiString = API_URL + "/recaptcha";
+
+    // grecaptcha.execute(apiKey, { action: 'form' })
+    // .then(function (token) {
+    //   axios.get(`${apiString}?token=${token}`)
+    //     .then(function (response) {
+    //       const score = response.data.score;
+    //       console.log("score: ", score);
+
+    //       //Take action here based on score.
+    //       if (score > 0.5) {
+    //         this.setState({token: token});
+    //         if (this.validateMessage(this.state)) {
+    //           axios
+    //             .post(API_URL + "/contact", this.state)
+    //             .then(() => {
+    //               document.getElementById("contactForm").reset();
+    //               this.setState({
+    //                 email: "",
+    //                 name: "",
+    //                 message: "",
+    //                 subject: "",
+    //                 token: ""
+    //               });
+    //               success();
+    //             })
+    //             .catch(() => {
+    //               error();
+    //             });
+    //         } else {
+    //           missingRequiredFields();
+    //         }
+    //       }
+    //     })
+    //     .catch(function (error) {
+    //       console.log("error: ", error);
+    //     });
+    // });
   }
 
   handleChange(e) {
@@ -93,7 +104,7 @@ class Contact extends Component {
         break;
     }
     if (this.state.error) {
-      this.error();
+      error();
     }
   }
 

@@ -4,7 +4,7 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import About from "../components/about";
 import Resume from "../components/resume";
-// import Blog from "../components/blog";
+import Blog from "../components/blog";
 import Books from "../components/books";
 import Contact from "../components/contact";
 
@@ -19,15 +19,17 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Header />
-        <About />
-        <Resume />
-        {/* <Blog /> */}
-        <Books />
-        <Contact />
-        <Footer />
-      </div>
+      <React.Fragment>
+        <div className="App">
+          <Header />
+          <About />
+          <Resume />
+          <Blog />
+          <Books />
+          <Contact />
+          <Footer />
+        </div>
+      </React.Fragment>
     );
   }
 }

@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-undef
 module.exports = {
   env: {
     browser: true,
@@ -7,7 +8,8 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:cypress/recommended"
+    "plugin:cypress/recommended",
+    "plugin:react-hooks/recommended"
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -16,7 +18,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: "module",
   },
-  plugins: ["react", "cypress"],
+  plugins: ["react", "cypress", 'react-hooks'],
   rules: {
     "no-console": "warn",
     "import/first": "off",
@@ -28,6 +30,8 @@ module.exports = {
     "cypress/assertion-before-screenshot": "warn",
     "cypress/no-force": "warn",
     "cypress/no-async-tests": "error",
-    "cypress/no-pause": "error"
+    "cypress/no-pause": "error",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   },
 };

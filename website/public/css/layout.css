@@ -305,13 +305,29 @@ ul#nav li.current a { color: #6e0e08; }
 /* ------------------------------------------------------------------ */
 
 #blog {
-   background: #08686e;
+   background:#cde0e2;
+   padding-top: 90px;
+   padding-bottom: 72px;
+   overflow: hidden;
+   color:#838C95;
+}
+
+#blog.component {
+   background:#08686e;
    padding-top: 90px;
    padding-bottom: 72px;
    overflow: hidden;
    color:#fff;
 }
+
+#nav-wrap{
+   background:#08686e;
+}
+
 #blog h2 {
+   color:#08686e;
+}
+#blog.component h2 {
    color:#fff;
 }
 #blog h1 {
@@ -325,12 +341,17 @@ ul#nav li.current a { color: #6e0e08; }
    padding-bottom: 6px;
 }
 
-#blog h3 {
+#blog h3 a{
+   font: 25px/30px 'opensans-bold', sans-serif;
+   color:#08686e;
+}
+
+#blog.component h3 a{
    font: 25px/30px 'opensans-bold', sans-serif;
    color:#fff;
 }
 
-#blog h3:hover {
+#blog h3:hover a{
    cursor: pointer;
    color: #6e0e08;
 }
@@ -355,6 +376,10 @@ ul#nav li.current a { color: #6e0e08; }
 .blog-item .item-wrap a {
    display: block;
    cursor: pointer;
+}
+
+.blog-post{
+   padding:10px 10%;
 }
 
 /* overlay */
@@ -429,7 +454,11 @@ ul#nav li.current a { color: #6e0e08; }
 .row.post:not(:last-child){
    margin-bottom: 48px;
    padding-bottom: 24px;
-   border-bottom: 1px solid #E8E8E8;
+   border-bottom: 1px solid #08686e;
+}
+
+.component .row.post:not(:last-child){
+   border-bottom: 1px solid #838C95;
 }
 
 /* ------------------------------------------------------------------ */
@@ -649,7 +678,7 @@ ul#nav li.current a { color: #6e0e08; }
 .flexslider .slides > li { position: relative; }
 
 /* Hide the slides before the JS is loaded. Avoids image jumping */
-.flexslider .slides > li { display: none; -webkit-backface-visibility: hidden; }
+.flexslider .slides > li { display: none; -webkit-backface-visibility: hidden; backface-visibility: hidden; }
 /* Suggested container for slide animation setups. Can replace this with your own */
 .flex-container { zoom: 1; position: relative; }
 
@@ -765,7 +794,6 @@ ul#nav li.current a { color: #6e0e08; }
    margin: 12px 0;
    color: #fff;
 	display: inline-block;
-	float: left;
    width: 26%;
 }
 #contact h2 {

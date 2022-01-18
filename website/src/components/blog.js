@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import axios from "axios";
 import { API_URL } from "../config";
 import moment from 'moment';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
+import { failedToLoadData } from '../utilities/toastMessages';
 import 'react-toastify/dist/ReactToastify.css';
-import {withRouter} from 'react-router-dom';
+import { TitleNavigation } from "../utilities/titleNavigation";
 
 class Blog extends Component {
   constructor(props) {
@@ -15,9 +16,7 @@ class Blog extends Component {
     };
   }
 
-  error = () => toast.error("Something went wrong.");
-
-  componentWillMount() {
+  componentDidMount() {
     axios
       .get(API_URL + "/blogs/3")
       .then((response) => {
@@ -26,7 +25,7 @@ class Blog extends Component {
         });
       })
       .catch(() => {
-        this.error();
+        failedToLoadData();
       });
   }
 
@@ -34,7 +33,7 @@ class Blog extends Component {
     return (
       <div className="row post">
         <div className="header-col">
-          <h3 onClick={()=> this.props.history.push("/blog/" + blog.blogId)}>{blog.title}</h3>
+          {TitleNavigation(blog.blogId,blog.title)}
         </div>
 
         <p className="info">
@@ -50,19 +49,27 @@ class Blog extends Component {
   }
   render() {
     return (
-      <section id="blog">
+      <section id="blog" className={"component"}>
           <ToastContainer />
         {this.state.blogPosts.map((blog) => {
           return this.buildBlogPost(blog);
         })}
-        <div className="row post">      
-            <div className="header-col">
-              <h3 onClick={()=> this.props.history.push("/blogs")}>See More</h3>
-            </div>
-        </div>
+        {this.state.blogPosts.length > 3 ?
+          (<div className="row post">      
+              <div className="header-col">
+                <h3><a href="/blogs">See More</a></h3>
+              </div>
+          </div>)
+        : 
+          (<div className="row post">      
+              <div className="header-col">
+                <h3><a href="/blogs">More comming soon...</a></h3>
+              </div>
+          </div>)
+        }
       </section>
     );
   }
 }
 
-export default withRouter(Blog);
+export default Blog;

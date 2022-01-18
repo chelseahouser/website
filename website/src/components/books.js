@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { API_URL } from "../config";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
+import { failedToLoadData } from "../utilities/toastMessages";
 
 class Books extends Component {
   constructor(props) {
@@ -12,9 +13,7 @@ class Books extends Component {
     };
   }
 
-  error = () => toast.error("Something went wrong.");
-
-  componentWillMount() {
+  componentDidMount() {
     axios
       .get(API_URL + "/book")
       .then((response) => {
@@ -23,7 +22,7 @@ class Books extends Component {
         });
       })
       .catch(() => {
-        this.error();
+        failedToLoadData();
       });
   }
 

@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import { API_URL } from "../config";
 import moment from 'moment';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
+import { failedToLoadData } from '../utilities/toastMessages';
 import 'react-toastify/dist/ReactToastify.css';
 
 class Resume extends Component {
@@ -17,9 +18,7 @@ class Resume extends Component {
     };
   }
 
-  error = () => toast.error("Something went wrong.");
-
-  componentWillMount() {
+  componentDidMount() {
     axios
       .get(API_URL + "/work")
       .then((response) => {
@@ -28,7 +27,7 @@ class Resume extends Component {
         });
       })
       .catch(() => {
-        this.error();
+        failedToLoadData();
       });
 
     axios
@@ -39,7 +38,7 @@ class Resume extends Component {
         });
       })
       .catch(() => {
-        this.error();
+        failedToLoadData();
       });
 
       axios
@@ -50,7 +49,7 @@ class Resume extends Component {
         });
       })
       .catch(() => {
-        this.error();
+        failedToLoadData();
       });
 
       axios
@@ -61,7 +60,7 @@ class Resume extends Component {
         });
       })
       .catch(() => {
-        this.error();
+        failedToLoadData();
       });
   }
 

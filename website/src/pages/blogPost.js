@@ -1,63 +1,60 @@
-import React, { Component } from "react";
-import axios from "axios";
+/* eslint-disable no-unused-vars */
+import React, { useEffect, useState } from "react";
 import { API_URL } from "../config";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { failedToLoadData } from '../utilities/toastMessages';
 import Footer from "../components/footer";
+import { useParams } from "react-router";
+import BlogNav from "../components/blogNavigation";
+import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw'
 
-class BlogPost extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {blog: {}, id: this.props.match.params.id};
+function BlogPost(){
+  let { id } = useParams();
+  const [data, setData] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+
+  const loadAsyncData = async () => {
+    setIsLoading(true);
+    try {
+      const resp = await fetch(API_URL + "/blog/" + id).then(r=>r.json());
+      setData(resp);
+      setIsLoading(false);
+    } catch(e) {
+      failedToLoadData();
+      setIsLoading(false);
+    }
   }
 
-  error = () => toast.error("Something went wrong.");
+  useEffect(() => {
+    loadAsyncData();
+  }, []);
 
-  componentWillMount() {
-    axios
-      .get(API_URL + "/blog/" + this.state.id)
-      .then((response) => {
-        this.setState({
-          blog: response.data,
-        });
-      })
-      .catch(() => {
-        this.error();
-      });
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <ToastContainer />
-        <nav id="nav-wrap">
-          <a className="mobile-btn" href="#nav-wrap" title="Show navigation">
-            Show navigation
-          </a>
-          <a className="mobile-btn" href="#home" title="Hide navigation">
-            Hide navigation
-          </a>
-
-          <ul id="nav" className="nav">
-            <li>
-              <a href="/#home">
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="/blogs">
-                Blogs
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <section id="blog">
-            <h2>{this.state.blog.title}</h2>
-        </section>
-        <Footer />
-      </div>
-    );
-  }
+  if(isLoading) return (    
+    <div className="App">
+      <ToastContainer />
+      <BlogNav />
+      <section id="blog">
+          <h2>Loading...</h2>
+      </section>
+      <Footer />
+  </div>);
+  else return (
+    <div className="App">
+      <ToastContainer />
+      <BlogNav />
+      <section id="blog">
+          <h2>{data.title}</h2>
+          <div className="blog-post">
+            <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+            {data.post}
+            </ReactMarkdown>
+          </div>
+      </section>
+      <Footer />
+    </div>
+  );
 }
 
 export default BlogPost;
