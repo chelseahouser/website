@@ -7,6 +7,7 @@ import Resume from "../components/resume";
 import Blog from "../components/blog";
 import Books from "../components/books";
 import Contact from "../components/contact";
+import { ToastContainer } from "react-toastify";
 
 class Home extends Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class Home extends Component {
     return (
       <React.Fragment>
         <div className="App">
+          <ToastContainer />
           <Header />
           <About />
           <Resume />

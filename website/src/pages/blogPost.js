@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import { API_URL } from "../config";
-import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { failedToLoadData } from '../utilities/toastMessages';
 import Footer from "../components/footer";
@@ -9,6 +8,7 @@ import { useParams } from "react-router";
 import BlogNav from "../components/blogNavigation";
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw'
+import { ToastContainer } from 'react-toastify';
 
 function BlogPost(){
   let { id } = useParams();
@@ -29,11 +29,11 @@ function BlogPost(){
 
   useEffect(() => {
     loadAsyncData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if(isLoading) return (    
     <div className="App">
-      <ToastContainer />
       <BlogNav />
       <section id="blog">
           <h2>Loading...</h2>
