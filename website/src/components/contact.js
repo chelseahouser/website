@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { API_URL } from "../config";
-import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { error, missingRequiredFields, success } from '../utilities/toastMessages';
 import { GoogleReCaptcha } from 'react-google-recaptcha-v3';
@@ -57,14 +56,13 @@ function Contact() {
   }
 
   const handleVerifyRecaptcha = async () => {
-    const { executeRecaptcha } = (this.props)
-      .googleReCaptchaProps;
+    const googleReCaptchaProps = {};
 
-    if (!executeRecaptcha) {
+    if (!googleReCaptchaProps || !googleReCaptchaProps.executeRecaptcha) {
       return;
     }
 
-    const token = await executeRecaptcha('contact');
+    const token = await googleReCaptchaProps.executeRecaptcha('contact');
     setToken(token);
   };
 
@@ -101,7 +99,6 @@ function Contact() {
 
   return (
     <section id="contact">
-      <ToastContainer />
       <div className="row">
         <div className="main-col">
           <h2>Send me a message</h2>

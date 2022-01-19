@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 import { API_URL } from "../config";
 import moment from 'moment';
-import { ToastContainer } from 'react-toastify';
 import { failedToLoadData } from '../utilities/toastMessages';
 import 'react-toastify/dist/ReactToastify.css';
 import { TitleNavigation } from "../utilities/titleNavigation";
@@ -40,7 +39,7 @@ class Blog extends Component {
           {new moment.unix(blog.date._seconds).format("MMM YYYY")}
           <span>&bull;</span>{" "}
           <em className="date">
-            {blog.tags.join(', ')}  
+            {blog.tags ? blog.tags.join(', ') : ""}  
           </em>
         </p>
         <p>{blog.description}</p>
@@ -50,7 +49,6 @@ class Blog extends Component {
   render() {
     return (
       <section id="blog" className={"component"}>
-          <ToastContainer />
         {this.state.blogPosts.map((blog) => {
           return this.buildBlogPost(blog);
         })}
@@ -63,7 +61,7 @@ class Blog extends Component {
         : 
           (<div className="row post">      
               <div className="header-col">
-                <h3><a href="/blogs">More comming soon...</a></h3>
+                <h3><a href="/blogs">More coming soon...</a></h3>
               </div>
           </div>)
         }

@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { failedToLoadData } from '../utilities/toastMessages';
 import Footer from "../components/footer";
 import { useParams } from "react-router";
+import moment from 'moment';
 import BlogNav from "../components/blogNavigation";
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw'
@@ -46,6 +47,13 @@ function BlogPost(){
       <BlogNav />
       <section id="blog">
           <h2>{data.title}</h2>
+          <p className="info">
+          {new moment.unix(data.date._seconds).format("MMM YYYY")}
+          <span>&bull;</span>{" "}
+          <em className="date">
+            {data.tags? data.tags.join(', ') : ""}  
+          </em>
+        </p>
           <div className="blog-post">
             <ReactMarkdown rehypePlugins={[rehypeRaw]}>
             {data.post}

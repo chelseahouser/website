@@ -34,7 +34,7 @@ function BlogList() {
           {new moment.unix(blog.date._seconds).format("MMM YYYY")}
           <span>&bull;</span>{" "}
           <em className="date">
-            {blog.tags.join(', ')}  
+            {blog.tags? blog.tags.join(', ') : ""}  
           </em>
         </p>
         <p>{blog.description}</p>
