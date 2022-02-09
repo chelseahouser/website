@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 import { API_URL } from "../config";
 import moment from 'moment';
-import { ToastContainer } from 'react-toastify';
 import { failedToLoadData } from '../utilities/toastMessages';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -116,7 +115,6 @@ class Resume extends Component {
   render() {
     return (
       <section id="resume">
-        <ToastContainer />
         <div className="row work">
           <div className="three columns header-col">
             <h1>

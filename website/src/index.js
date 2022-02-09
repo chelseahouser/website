@@ -14,17 +14,24 @@ import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import { API_KEY } from "./config";
 
 ReactDOM.render(
-  <GoogleReCaptchaProvider reCaptchaKey={API_KEY} >
-    <Router>
-      <Routes>
-        <Route  exact path="/" element={<Home />} />
-        <Route path="/blogs" element={<BlogList />} />
-        <Route path="/blog/:id" element={<BlogPost />} />
-      </Routes>
-    </Router>
-  </GoogleReCaptchaProvider>,
+  <App />
+,
   document.getElementById('root')
 )
+
+function App() {
+  return (
+    <GoogleReCaptchaProvider reCaptchaKey={API_KEY} >
+      <Router>
+        <Routes>
+          <Route  exact path="/" element={<Home />} />
+          <Route path="/blogs" element={<BlogList />} />
+          <Route path="/blog/:id" element={<BlogPost />} />
+        </Routes>
+      </Router>
+    </GoogleReCaptchaProvider>
+  )
+}
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { API_URL } from "../config";
-import { ToastContainer } from 'react-toastify';
 import { failedToLoadData } from "../utilities/toastMessages";
 
 class Books extends Component {
@@ -43,7 +42,6 @@ class Books extends Component {
   render() {
     return (
       <section id="books">
-        <ToastContainer />
         <div className="row localStore">
           <div className="three columns header-col">
             <h1>
