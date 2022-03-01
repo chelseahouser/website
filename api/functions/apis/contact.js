@@ -24,48 +24,37 @@ exports.saveContactMessage = (request, response) => {
     return response.status(400).json({title: "Must not be empty"});
   }
 
-  res.set('Access-Control-Allow-Origin', 'https://chelseahouser.com/');
+  response.set("Access-Control-Allow-Origin", "https://chelseahouser.com/");
 
-  const secret = functions.config().api.secret_key;
+  // save to database
+  const newContactMessage = {
+    name: request.body.name,
+    email: request.body.email,
+    subject: request.body.subject,
+    message: request.body.message,
+    createdAt: new Date().toISOString(),
+  };
 
-  //Front-end will send the token        
-  const token = req.query.token;
-  const response = await axios.get(`https://recaptcha.google.com/recaptcha/api/siteverify?secret=${secret}&response=${token}`);
-  const data = response.data;
+  db
+      .collection("contact")
+      .add(newContactMessage)
+      .then((doc)=>{
+        const responseToContactMessage = newContactMessage;
+        responseToContactMessage.id = doc.id;
+        return response.json(responseToContactMessage);
+      })
+      .catch((err) => {
+        response.status(500).json({error: "Something went wrong"});
+      });
 
-  if (data.success) {
-    if(data.score > .5) {
-      // save to database
-      const newContactMessage = {
-        name: request.body.name,
-        email: request.body.email,
-        subject: request.body.subject,
-        message: request.body.message,
-        createdAt: new Date().toISOString(),
-      };
-      
-      db
-          .collection("contact")
-          .add(newContactMessage)
-          .then((doc)=>{
-            const responseToContactMessage = newContactMessage;
-            responseToContactMessage.id = doc.id;
-            return response.json(responseToContactMessage);
-          })
-          .catch((err) => {
-            response.status(500).json({error: "Something went wrong"});
-          });
+  // email
+  const emailData = {
+    from: "\"CHOUSER Website\" website@chelseahouser.com",
+    replyTo: "\"" + request.body.name + "\" " + request.body.email,
+    to: "website@chelseahouser.com",
+    subject: request.body.subject,
+    text: request.body.message,
+  };
 
-      // email
-      const emailData = {
-        from: "\"CHOUSER Website\" website@chelseahouser.com",
-        replyTo: "\"" + request.body.name + "\" " + request.body.email,
-        to: "website@chelseahouser.com",
-        subject: request.body.subject,
-        text: request.body.message,
-      };
-
-      transporter.sendMail(emailData);
-    }
-  }
+  transporter.sendMail(emailData);
 };

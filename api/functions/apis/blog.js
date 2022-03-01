@@ -3,6 +3,7 @@ const {db} = require("../util/admin");
 exports.getAllBlogs = (request, response) => {
   db
       .collection("blog")
+      .orderBy("date", "desc")
       .get()
       .then((data) => {
         const blogs = [];
