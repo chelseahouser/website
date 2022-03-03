@@ -2,13 +2,14 @@
   "name": "functions",
   "description": "Cloud Functions for Firebase",
   "scripts": {
+    "deploy": "firebase deploy --only functions",
+    "evergreen": "ncu -u && npm update --legacy-peer-deps && npm install --legacy-peer-deps",
     "lint": "eslint .",
+    "logs": "firebase functions:log",
     "serve": "firebase emulators:start --only functions",
     "shell": "firebase functions:shell",
     "start": "npm run shell",
-    "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log",
-    "evergreen": "ncu -u && npm update --legacy-peer-deps && npm install --legacy-peer-deps"
+    "test": "mocha --reporter spec tests/index.test.js --exit"
   },
   "engines": {
     "node": "16"
@@ -20,14 +21,18 @@
     "firebase": "^9.6.7",
     "firebase-admin": "^10.0.2",
     "firebase-functions": "^3.18.1",
-    "firebase-tools": "^10.2.1",
+    "firebase-tools": "^10.2.2",
     "isomorphic-fetch": "^3.0.0",
     "nodemailer": "^6.7.2"
   },
   "devDependencies": {
+    "chai": "^4.3.6",
+    "chai-as-promised": "^7.1.1",
     "eslint": "^8.10.0",
     "eslint-config-google": "^0.14.0",
-    "firebase-functions-test": "^0.3.3"
+    "firebase-functions-test": "^0.3.3",
+    "mocha": "^9.2.1",
+    "sinon": "^13.0.1"
   },
   "private": true
 }

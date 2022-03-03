@@ -24,7 +24,7 @@ exports.saveContactMessage = (request, response) => {
     return response.status(400).json({title: "Must not be empty"});
   }
 
-  response.set("Access-Control-Allow-Origin", "https://chelseahouser.com/");
+  // response.set("Access-Control-Allow-Origin", "https://chelseahouser.com/");
 
   // save to database
   const newContactMessage = {
