@@ -12,24 +12,28 @@ import BlogPost from "./pages/blogPost";
 import "./index.css";
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import { API_KEY } from "./config";
+import BlogSubscribe from "./pages/blogSubscribe";
+import BlogUnsubscribe from "./pages/blogUnsubscribe";
 
 ReactDOM.render(
-  <App />
+  <GoogleReCaptchaProvider reCaptchaKey={API_KEY} >
+    <App />
+  </GoogleReCaptchaProvider>
 ,
   document.getElementById('root')
 )
 
 function App() {
   return (
-    <GoogleReCaptchaProvider reCaptchaKey={API_KEY} >
-      <Router>
-        <Routes>
-          <Route  exact path="/" element={<Home />} />
-          <Route path="/blogs" element={<BlogList />} />
-          <Route path="/blog/:id" element={<BlogPost />} />
-        </Routes>
-      </Router>
-    </GoogleReCaptchaProvider>
+    <Router>
+      <Routes>
+        <Route  exact path="/" element={<Home />} />
+        <Route path="/blogs" element={<BlogList />} />
+        <Route path="/blog/:id" element={<BlogPost />} />
+        <Route path="/subscribe" element={<BlogSubscribe />} />
+        <Route path="/unsubscribe" element={<BlogUnsubscribe />} />
+      </Routes>
+    </Router>
   )
 }
 

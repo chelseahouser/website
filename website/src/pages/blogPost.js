@@ -48,12 +48,12 @@ function BlogPost(){
       <section id="blog">
           <h2>{data.title}</h2>
           <p className="info">
-          {new moment.unix(data.date._seconds).format("MMM YYYY")}
-          <span>&bull;</span>{" "}
-          <em className="date">
-            {data.tags? data.tags.join(', ') : ""}  
-          </em>
-        </p>
+            {new moment.unix(data.date._seconds).format("MMM YYYY")}
+            <span>&bull;</span>{" "}
+            <em className="date">
+              {data.tags? data.tags.join(', ') : ""}  
+            </em>
+          </p>
           <div className="blog-post">
             <ReactMarkdown rehypePlugins={[rehypeRaw]}>
             {data.post}

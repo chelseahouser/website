@@ -21,6 +21,11 @@ function BlogNav(){
               Blogs
             </a>
           </li>
+          <li>
+            <a href="/subscribe">
+              Subscribe
+            </a>
+          </li>
         </ul>
       </nav>
   );

@@ -55,17 +55,6 @@ function Contact() {
     }
   }
 
-  const handleVerifyRecaptcha = async () => {
-    const googleReCaptchaProps = {};
-
-    if (!googleReCaptchaProps || !googleReCaptchaProps.executeRecaptcha) {
-      return;
-    }
-
-    const token = await googleReCaptchaProps.executeRecaptcha('contact');
-    setToken(token);
-  };
-
   const handleChange = (e) => {
     var value = e.target.value;
     switch (e.target.id) {
@@ -105,7 +94,7 @@ function Contact() {
           <br />
         </div>
         <div className="main-col">
-          <GoogleReCaptcha onVerify={handleVerifyRecaptcha} />
+          <GoogleReCaptcha onVerify={token => {setToken(token);}} />
           <form action="" method="post" id="contactForm" name="contactForm">
             <fieldset>
               <div>

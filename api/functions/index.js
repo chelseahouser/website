@@ -19,6 +19,14 @@ app.get("/blogs/:count", getCountOfBlogs);
 app.get("/blog/:blogid", getBlogById);
 
 const {
+  subscribe,
+  unsubscribe,
+} = require("./apis/subscription");
+
+app.post("/subscribe", subscribe);
+app.post("/unsubscribe", unsubscribe);
+
+const {
   getAllBooks,
 } = require("./apis/book");
 

@@ -461,6 +461,86 @@ ul#nav li.current a { color: #6e0e08; }
    border-bottom: 1px solid #838C95;
 }
 
+
+/* ------------------------------------------------------------------ */
+/* e. Subscription Section
+/* ------------------------------------------------------------------ */
+
+#subscription {
+   background:#cde0e2;
+   padding-top: 90px;
+   padding-bottom: 72px;
+   overflow: hidden;
+   color:#838C95;
+}
+
+#subscription.component {
+   background:#08686e;
+   padding-top: 90px;
+   padding-bottom: 72px;
+   overflow: hidden;
+   color:#fff;
+}
+
+#subscription h2 {
+   color:#08686e;
+}
+
+#subscription .header-col { padding-top: 9px; }
+#subscription .main-col { 
+   padding-right: 10%;
+   padding-left: 10%; 
+}
+
+/* subscription form */
+#subscription form { margin-bottom: 30px; }
+#subscription label {
+   font: 15px/24px 'opensans-bold', sans-serif;
+   margin: 12px 0;
+   color: #fff;
+	display: inline-block;
+   width: 26%;
+}
+
+#subscription input,
+#subscription textarea,
+#subscription select {
+   padding: 10px 20px;
+	color: #eee;
+	background: #fff;
+	border: 0;
+	outline: none;
+   font-size: 15px;
+   line-height: 24px;
+   width: 100%;
+   margin: 21px auto;
+}
+#subscription input:focus,
+#subscription textarea:focus,
+#subscription select:focus {
+	color: #fff;
+	background-color: #08356e;
+}
+#subscription button.submit {
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	color:#fff;
+   background: #08356e;
+	border: none;
+   cursor: pointer;
+   height: auto;
+   display: inline-block;
+	border-radius: 10px;
+}
+#subscription button.submit:hover {
+	color: #08356e;
+	background: #fff;
+}
+#subscription span.required {
+	color: #08356e;
+	font-size: 13px;
+}
+
 /* ------------------------------------------------------------------ */
 /* e. Books Section
 /* ------------------------------------------------------------------ */

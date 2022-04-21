@@ -33,6 +33,7 @@ exports.saveContactMessage = (request, response) => {
     subject: request.body.subject,
     message: request.body.message,
     createdAt: new Date().toISOString(),
+    token: request.body.token,
   };
 
   db
