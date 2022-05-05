@@ -30,8 +30,11 @@ function BlogSubscribe(){
     if (validateSubscribe()) {
       axios
         .post(API_URL + "/subscribe", {
-          email: email,
-          token: token
+          email: email
+        },{
+          headers: {
+            'X-Firebase-AppCheck': token,
+          }
         })
         .then(() => {
           document.getElementById("subscribeForm").reset();

@@ -24,8 +24,6 @@ exports.saveContactMessage = (request, response) => {
     return response.status(400).json({title: "Must not be empty"});
   }
 
-  // response.set("Access-Control-Allow-Origin", "https://chelseahouser.com/");
-
   // save to database
   const newContactMessage = {
     name: request.body.name,
@@ -33,7 +31,6 @@ exports.saveContactMessage = (request, response) => {
     subject: request.body.subject,
     message: request.body.message,
     createdAt: new Date().toISOString(),
-    token: request.body.token,
   };
 
   db
@@ -58,4 +55,5 @@ exports.saveContactMessage = (request, response) => {
   };
 
   transporter.sendMail(emailData);
+  return response.status(200);
 };

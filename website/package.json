@@ -4,35 +4,36 @@
   "private": true,
   "proxy": "https://us-central1-chouser-website.cloudfunctions.net/api",
   "dependencies": {
-    "@material-ui/core": "^4.12.3",
-    "@material-ui/icons": "^4.11.2",
-    "axios": "^0.24.0",
-    "eslint": "^8.7.0",
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/icons": "^4.11.3",
+    "axios": "^0.27.2",
+    "eslint": "^8.14.0",
     "eslint-config-google": "^0.14.0",
-    "express": "^4.17.2",
-    "firebase": "^9.6.3",
-    "firebase-admin": "^10.0.1",
-    "firebase-tools": "^10.1.0",
+    "express": "^4.18.1",
+    "firebase": "^9.7.0",
+    "firebase-admin": "^10.2.0",
+    "firebase-tools": "^10.8.0",
     "jquery": "^3.6.0",
-    "moment": "^2.29.1",
+    "moment": "^2.29.3",
     "particles-bg": "^2.5.5",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
     "react-ga": "^3.3.0",
     "react-google-recaptcha-v3": "^1.9.7",
-    "react-markdown": "^8.0.0",
-    "react-moment": "^1.1.1",
+    "react-markdown": "^8.0.3",
+    "react-moment": "^1.1.2",
     "react-reveal": "^1.2.2",
-    "react-router-dom": "^6.2.1",
-    "react-scripts": "^5.0.0",
-    "react-toastify": "^8.1.0",
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "^5.0.1",
+    "react-toastify": "^9.0.1",
     "rehype-raw": "^6.1.1",
     "remark-gfm": "^3.0.1",
-    "web-vitals": "^2.1.3"
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "lint": "eslint .",
     "cypress:open": "cypress open",
     "eject": "react-scripts eject",
     "evergreen": "ncu -u && npm update --legacy-peer-deps && npm install --legacy-peer-deps"
@@ -55,8 +56,8 @@
     ]
   },
   "devDependencies": {
-    "cypress": "^9.2.1",
+    "cypress": "^9.6.0",
     "eslint-plugin-cypress": "^2.12.1",
-    "eslint-plugin-react-hooks": "^4.3.0"
+    "eslint-plugin-react-hooks": "^4.5.0"
   }
 }

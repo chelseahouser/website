@@ -30,8 +30,11 @@ function BlogUnsubscribe(){
     if (validateSubscribe()) {
       axios
         .post(API_URL + "/unsubscribe", {
-          email: email,
-          token: token
+          email: email
+        },{
+          headers: {
+            'X-Firebase-AppCheck': token,
+          }
         })
         .catch(() => {
           error();

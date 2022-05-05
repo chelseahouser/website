@@ -5,13 +5,10 @@ exports.subscribe = (request, response) => {
     return response.status(400).json({title: "Must not be empty"});
   }
 
-  // response.set("Access-Control-Allow-Origin", "https://chelseahouser.com/");
-
   // save to database
   const newSubscriber = {
     email: request.body.email,
     createdAt: new Date().toISOString(),
-    token: request.body.token,
   };
 
   db
@@ -31,8 +28,6 @@ exports.unsubscribe = (request, response) => {
   if (request.body.email === "") {
     return response.status(400).json({title: "Must not be empty"});
   }
-
-  // response.set("Access-Control-Allow-Origin", "https://chelseahouser.com/");
 
   const query = db
       .collection("subscription")

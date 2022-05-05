@@ -39,8 +39,11 @@ function Contact() {
           name: name,
           subject: subject,
           message: message,
-          email: email,
-          token: token
+          email: email
+        },{
+          headers: {
+            'X-Firebase-AppCheck': token,
+          }
         })
         .then(() => {
           document.getElementById("contactForm").reset();

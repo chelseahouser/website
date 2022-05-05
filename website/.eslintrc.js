@@ -19,6 +19,7 @@ module.exports = {
     sourceType: "module",
   },
   plugins: ["react", "cypress", 'react-hooks'],
+  ignorePatterns: ["/public/*", "/build/*", "/cypress/*"],
   rules: {
     "no-console": "warn",
     "import/first": "off",
