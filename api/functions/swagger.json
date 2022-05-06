@@ -1,9 +1,0 @@
-{
-   "swagger": "3.0.1",
-   "info": {
-     "title": "Personal Website API",
-     "description": "This is the API for accessing the firebase firestore for my personal website.",
-     "version": "1.0"
-   },
-   "produces": ["application/json"]
-}
