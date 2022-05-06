@@ -84,9 +84,6 @@ function Contact() {
       default:
         break;
     }
-    if (this.state.error) {
-      error();
-    }
   }
 
   return (
@@ -97,7 +94,7 @@ function Contact() {
           <br />
         </div>
         <div className="main-col">
-          <GoogleReCaptcha onVerify={token => {setToken(token);}} />
+          <GoogleReCaptcha onVerify={newToken => {if(token == undefined) {setToken(newToken);}}} />
           <form action="" method="post" id="contactForm" name="contactForm">
             <fieldset>
               <div>

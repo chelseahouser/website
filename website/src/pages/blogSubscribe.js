@@ -60,9 +60,6 @@ function BlogSubscribe(){
       default:
         break;
     }
-    if (this.state.error) {
-      error();
-    }
   }
   
   return (
@@ -74,7 +71,7 @@ function BlogSubscribe(){
         <br />
         <h3>Submit your email below to get a notification when a new blog is posted.</h3>
         <div className="main-col">
-          <GoogleReCaptcha onVerify={token => {setToken(token);}} />
+          <GoogleReCaptcha onVerify={newToken => {if(token == undefined) {setToken(newToken);}}} />
           <form action="" method="post" id="subscribeForm" name="subscribeForm">
             <fieldset>
               <div>

@@ -58,9 +58,6 @@ function BlogUnsubscribe(){
       default:
         break;
     }
-    if (this.state.error) {
-      error();
-    }
   }
   
   return (
@@ -72,7 +69,7 @@ function BlogUnsubscribe(){
         <br />
         <h3>Sorry to see you go, but I understand. Please enter your email below to unsubscribe.</h3>
         <div className="main-col">
-          <GoogleReCaptcha onVerify={token => {setToken(token);}} />
+          <GoogleReCaptcha onVerify={newToken => {if(token == undefined) {setToken(newToken);}}} />
           <form action="" method="post" id="subscribeForm" name="subscribeForm">
             <fieldset>
               <div>
