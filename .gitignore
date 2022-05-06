@@ -104,3 +104,8 @@ dist
 .tern-port
 
 *.env
+
+website/src/config.js
+website/package-lock.json
+website/build/
+website/.firebase/

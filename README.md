@@ -12,7 +12,16 @@ This website is using the following technologies:
 
 ## Architecture
 
-The website consists of two apps(UI and API). The UI is a standard react app with firebase hosting. It is mostly a single-page app, however, I chose to create the blog as separate pages for ease of linking articles. The API is a firebase functions app built with express.js with access to a Cloud Firestore for data storage and backend management. Although this application is likely constant enough to simply store most of my data in the UI, having most of my data models stored in a database allows me to make updates such as changing up what books I am reading without re-deploying.
+The website consists of two apps(UI and API). The UI is a standard react app with firebase hosting. It is mostly a single-page app, however, I chose to create the blog as separate pages for ease of linking articles on external sources. The API is a firebase functions app built with express.js with access to a Cloud Firestore for data storage and backend management. Although this application is likely constant enough to simply store most of my data in the UI, having most of my data models stored in a database allows me to make updates such as changing up what books I am reading without re-deploying.
+
+## TODO
+
+- Write Cypress Tests for UI
+- Set up Blog images to pull from cloud storage
+- Set up Swagger documentation for the API(this may not be possible)
+- Find and implement a test suite for the API
+- Set up subscription to allow a publish endpoint that will send out emails to all subscribers
+- Add logging and analytics for error tracking
 
 ## Running Locally
 
