@@ -20,7 +20,6 @@ The website consists of two apps(UI and API). The UI is a standard react app wit
 - Set up Blog images to pull from cloud storage
 - Set up Swagger documentation for the API(this may not be possible)
 - Find and implement a test suite for the API
-- Set up subscription to allow a publish endpoint that will send out emails to all subscribers
 - Add logging and analytics for error tracking
 
 ## Running Locally

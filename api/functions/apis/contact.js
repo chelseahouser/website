@@ -1,15 +1,5 @@
 const {db} = require("../util/admin");
-const nodemailer = require("nodemailer");
-const functions = require("firebase-functions");
-
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: functions.config().api.email_username,
-    pass: functions.config().api.email_password,
-  },
-  secure: true,
-});
+const {transporter} = require("../util/email");
 
 exports.saveContactMessage = (request, response) => {
   if (request.body.message.trim() === "") {

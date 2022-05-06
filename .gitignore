@@ -109,3 +109,5 @@ website/src/config.js
 website/package-lock.json
 website/build/
 website/.firebase/
+
+api/functions/package-lock.json
