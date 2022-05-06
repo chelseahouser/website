@@ -111,3 +111,5 @@ website/build/
 website/.firebase/
 
 api/functions/package-lock.json
+
+api/functions/util/config.js
