@@ -1,7 +1,6 @@
 const functions = require("firebase-functions");
 const app = require("express")();
 const cors = require("cors")({origin: "*"});
-const { appCheckVerification } = require("./util/appcheck");
 
 app.use(function(req, res, next) {
   cors(req, res, () => {
@@ -25,8 +24,8 @@ const {
   publishBlogPost,
 } = require("./apis/subscription");
 
-app.post("/subscribe", [appCheckVerification], subscribe);
-app.post("/unsubscribe", [appCheckVerification], unsubscribe);
+app.post("/subscribe", subscribe);
+app.post("/unsubscribe", unsubscribe);
 app.post("/publish/:blogid", publishBlogPost);
 
 const {
@@ -69,6 +68,6 @@ const {
   saveContactMessage,
 } = require("./apis/contact");
 
-app.post("/contact", [appCheckVerification], saveContactMessage);
+app.post("/contact", saveContactMessage);
 
 exports.api = functions.https.onRequest(app);

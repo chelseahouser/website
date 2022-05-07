@@ -1,7 +1,14 @@
 const {db} = require("../util/admin");
 const {transporter} = require("../util/email");
+const {appCheckVerification} = require("../util/appcheck");
 
-exports.subscribe = (request, response) => {
+exports.subscribe = (request, response, next) => {
+  appCheckVerification(request, response, next);
+
+  if (response.status == 401) {
+    return response;
+  }
+
   if (request.body.email.trim() === "") {
     return response.status(400).json({title: "Must not be empty"});
   }
@@ -23,9 +30,17 @@ exports.subscribe = (request, response) => {
       .catch((err) => {
         response.status(500).json({error: "Something went wrong"});
       });
+
+  return response.sendStatus(200);
 };
 
-exports.unsubscribe = (request, response) => {
+exports.unsubscribe = (request, response, next) => {
+  appCheckVerification(request, response, next);
+
+  if (response.status == 401) {
+    return response;
+  }
+
   if (request.body.email === "") {
     return response.status(400).json({title: "Must not be empty"});
   }
@@ -41,7 +56,13 @@ exports.unsubscribe = (request, response) => {
   return response;
 };
 
-exports.publishBlogPost = (request, response) => {
+exports.publishBlogPost = (request, response, next) => {
+  appCheckVerification(request, response, next);
+
+  if (response.status == 401) {
+    return response;
+  }
+
   if (request.body.message === "") {
     return response.status(400).json({title: "You need to send a message."});
   }

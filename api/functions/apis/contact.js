@@ -1,7 +1,14 @@
 const {db} = require("../util/admin");
 const {transporter} = require("../util/email");
+const {appCheckVerification} = require("../util/appcheck");
 
-exports.saveContactMessage = (request, response) => {
+exports.saveContactMessage = (request, response, next) => {
+  appCheckVerification(request, response, next);
+
+  if (response.status == 401) {
+    return response;
+  }
+
   if (request.body.message.trim() === "") {
     return response.status(400).json({body: "Must not be empty"});
   }
