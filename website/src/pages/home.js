@@ -1,39 +1,29 @@
-import React, { Component } from "react";
-import ReactGA from "react-ga";
-import Header from "../components/header";
-import Footer from "../components/footer";
-import About from "../components/about";
-import Resume from "../components/resume";
-import Blog from "../components/blog";
-import Books from "../components/books";
-import Contact from "../components/contact";
+import React, { Suspense } from "react";
 import { ToastContainer } from "react-toastify";
 
-class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+const Header = React.lazy(() => import("../components/header"));
+const Footer = React.lazy(() => import("../components/footer"));
+const About = React.lazy(() => import("../components/about"));
+const Resume = React.lazy(() => import("../components/resume"));
+const Blog = React.lazy(() => import("../components/blog"));
+const Books = React.lazy(() => import("../components/books"));
+const Contact = React.lazy(() => import("../components/contact"));
 
-    ReactGA.initialize("UA-110570651-1");
-    ReactGA.pageview(window.location.pathname);
-  }
-
-  render() {
-    return (
+const Home = () => (
       <React.Fragment>
         <div className="App">
           <ToastContainer />
-          <Header />
-          <About />
-          <Resume />
-          <Blog />
-          <Books />
-          <Contact />
-          <Footer />
+          <Suspense fallback={<div>Loading...</div>} >
+            <Header />
+            <About />
+            <Resume />
+            <Blog />
+            <Books />
+            <Contact />
+            <Footer />
+          </Suspense>
         </div>
       </React.Fragment>
-    );
-  }
-}
+);
 
 export default Home;

@@ -41,17 +41,6 @@ class Resume extends Component {
       });
 
       axios
-      .get(API_URL + "/skill")
-      .then((response) => {
-        this.setState({
-          skills: response.data,
-        });
-      })
-      .catch(() => {
-        failedToLoadData();
-      });
-
-      axios
       .get(API_URL + "/certification")
       .then((response) => {
         this.setState({
@@ -100,15 +89,6 @@ class Resume extends Component {
         </p>
       </div>
     );
-  }
-
-  buildSkillList(skills) {
-    return skills.forEach(skill => {
-      <div key={skill.type}>
-        <h3>{skill.type}</h3>
-        <p>{skill.name}</p>
-      </div>
-    });
   }
 
   render() {

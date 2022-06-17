@@ -30,7 +30,7 @@ class Blog extends Component {
 
   buildBlogPost(blog) {
     return (
-      <div className="row post">
+      <div className="row post" key={blog.blogId}>
         <div className="header-col">
           {TitleNavigation(blog.blogId,blog.title)}
         </div>

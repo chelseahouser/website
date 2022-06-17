@@ -1,7 +1,7 @@
 import reportWebVitals from "./reportWebVitals";
 
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from 'react-dom/client';
 import {
 	BrowserRouter as Router,
   Routes,
@@ -15,12 +15,12 @@ import { API_KEY } from "./config";
 import BlogSubscribe from "./pages/blogSubscribe";
 import BlogUnsubscribe from "./pages/blogUnsubscribe";
 
-ReactDOM.render(
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render(
   <GoogleReCaptchaProvider reCaptchaKey={API_KEY} >
     <App />
   </GoogleReCaptchaProvider>
-,
-  document.getElementById('root')
 )
 
 function App() {
