@@ -60,13 +60,13 @@ header .banner {
 
 header .banner-text { width: 100%; }
 header .banner-text h1 {
-   font: 90px/1.1em;
+   font-size: 90px;
    color: #fff;
    letter-spacing: -2px;
    margin: 0 auto 18px auto;
 }
 header .banner-text h3 {
-   font: 18px/1.9em;
+   font-size: 18px;
    color: #ddd;
    margin: 0 auto;
    width: 70%;
@@ -129,7 +129,7 @@ header .scrolldown a:hover { color: #0762f9; }
 
 /* nav-wrap */
 #nav-wrap {
-   font: 12px;
+   font: 12px 'opensans-bold', sans-serif;
    width: 100%;
    text-transform: uppercase;
    letter-spacing: 2.5px;
@@ -201,7 +201,7 @@ ul#nav li.current a { color: #6e0e08; }
 #about a:hover, #about a:focus { color: #08356e; }
 
 #about h2 {
-   font: 22px/30px;
+   font-size: 22px/30px;
    color: #fff;
    margin-bottom: 12px;
 }
@@ -266,7 +266,7 @@ ul#nav li.current a { color: #6e0e08; }
 #resume a:hover, #resume a:focus { color: #313131; }
 
 #resume h1 {
-   font: 18px/24px;
+   font-size: 24px;
    text-transform: uppercase;
    letter-spacing: 1px;
    color: #08686e;
@@ -275,7 +275,7 @@ ul#nav li.current a { color: #6e0e08; }
    padding-bottom: 6px;
 }
 #resume h3 {
-   font: 25px/30px;
+   font-size: 25px/30px;
    color:#08686e;
 }
 
@@ -289,7 +289,7 @@ ul#nav li.current a { color: #6e0e08; }
 }
 
 #resume .date {
-   font: 15px/24px 'opensans-regular', sans-serif;
+   font-size: 15px/24px 'opensans-regular', sans-serif;
    margin-top: 6px;
 }
 
@@ -324,7 +324,7 @@ ul#nav li.current a { color: #6e0e08; }
    color:#fff;
 }
 #blog h1 {
-   font: 18px/24px;
+   font-size: 24px;
    text-transform: uppercase;
    letter-spacing: 1px;
    color:#fff;
@@ -334,12 +334,12 @@ ul#nav li.current a { color: #6e0e08; }
 }
 
 #blog h3 a{
-   font: 25px/30px;
+   font-size: 25px/30px;
    color:#08686e;
 }
 
 #blog.component h3 a{
-   font: 25px/30px;
+   font-size: 25px/30px;
    color:#fff;
 }
 
@@ -422,11 +422,11 @@ ul#nav li.current a { color: #6e0e08; }
 }
 .blog-item .blog-item-meta { padding: 18px }
 .blog-item .blog-item-meta h5 {
-   font: 14px/21px;
+   font-size: 14px/21px;
    color: #fff;
 }
 .blog-item .blog-item-meta p {
-   font: 12px/18px 'opensans-light', sans-serif;
+   font-size: 12px/18px 'opensans-light', sans-serif;
    color: #c6c7c7;
    margin-bottom: 0;
 }
@@ -487,7 +487,7 @@ ul#nav li.current a { color: #6e0e08; }
 /* subscription form */
 #subscription form { margin-bottom: 30px; }
 #subscription label {
-   font: 15px/24px;
+   font-size: 15px/24px;
    margin: 12px 0;
    color: #fff;
 	display: inline-block;
@@ -549,7 +549,7 @@ ul#nav li.current a { color: #6e0e08; }
 }
 
 #books h1 {
-   font: 18px/24px;
+   font-size: 24px;
    text-transform: uppercase;
    letter-spacing: 1px;
    color:#08686e;
@@ -558,7 +558,7 @@ ul#nav li.current a { color: #6e0e08; }
    padding-bottom: 6px;
 }
 #books h3 {
-   font: 25px/30px;
+   font-size: 25px/30px;
    color:#08686e;
 }
 #books h3:hover {
@@ -640,7 +640,7 @@ ul#nav li.current a { color: #6e0e08; }
 }
 .books-item .books-item-meta { padding: 18px }
 .books-item .books-item-meta h5 {
-   font: 14px/21px;
+   font-size: 14px/21px;
    color: #fff;
 }
 .books-item .books-item-meta p {
@@ -670,7 +670,7 @@ ul#nav li.current a { color: #6e0e08; }
 }
 .popup-modal .description-box { padding: 12px 36px 18px 36px; }
 .popup-modal .description-box h4 {
-   font: 15px/24px;
+   font-size: 15px/24px;
 	margin-bottom: 12px;
    color: #111;
 }
@@ -697,7 +697,7 @@ ul#nav li.current a { color: #6e0e08; }
 }
 .popup-modal .link-box a {
    color: #fff;
-	font: 11px/21px;
+	font-size: 11px/21px;
 	text-transform: uppercase;
    letter-spacing: 3px;
    cursor: pointer;
@@ -828,7 +828,7 @@ ul#nav li.current a { color: #6e0e08; }
 #contact a:hover, #contact a:focus { color: #fff; }
 
 #contact h1 {
-   font: 18px/24px;
+   font-size: 24px;
    text-transform: uppercase;
    letter-spacing: 3px;
    color: #EBEEEE;
@@ -847,7 +847,7 @@ ul#nav li.current a { color: #6e0e08; }
 }
 
 #contact h4 {
-   font: 16px/24px;
+   font-size: 16px/24px;
    color: #EBEEEE;
    margin-bottom: 6px;
 }
@@ -861,7 +861,7 @@ ul#nav li.current a { color: #6e0e08; }
 /* contact form */
 #contact form { margin-bottom: 30px; }
 #contact label {
-   font: 15px/24px;
+   font-size: 15px/24px;
    margin: 12px 0;
    color: #fff;
 	display: inline-block;
