@@ -23,7 +23,10 @@
 /* a. General Styles
 /* ------------------------------------------------------------------ */
 
-body { background: #0f0f0f; }
+body { 
+   background: #0f0f0f;
+   font: 'opensans-bold', sans-serif;
+ }
 
 /* ------------------------------------------------------------------ */
 /* b. Header Styles
@@ -57,13 +60,13 @@ header .banner {
 
 header .banner-text { width: 100%; }
 header .banner-text h1 {
-   font: 90px/1.1em 'opensans-bold', sans-serif;
+   font: 90px/1.1em;
    color: #fff;
    letter-spacing: -2px;
    margin: 0 auto 18px auto;
 }
 header .banner-text h3 {
-   font: 18px/1.9em 'librebaskerville-regular', serif;
+   font: 18px/1.9em;
    color: #ddd;
    margin: 0 auto;
    width: 70%;
@@ -91,7 +94,7 @@ header .social li {
    padding: 0;
 }
 header .social li a { color: #fff; }
-header .social li a:hover { color: #0762f9; }
+header .social li a:hover { color: #08356e; }
 
 /* scrolldown link */
 header .scrolldown a {
@@ -126,7 +129,7 @@ header .scrolldown a:hover { color: #0762f9; }
 
 /* nav-wrap */
 #nav-wrap {
-   font: 12px 'opensans-bold', sans-serif;
+   font: 12px;
    width: 100%;
    text-transform: uppercase;
    letter-spacing: 2.5px;
@@ -198,7 +201,7 @@ ul#nav li.current a { color: #6e0e08; }
 #about a:hover, #about a:focus { color: #08356e; }
 
 #about h2 {
-   font: 22px/30px 'opensans-bold', sans-serif;
+   font: 22px/30px;
    color: #fff;
    margin-bottom: 12px;
 }
@@ -263,17 +266,16 @@ ul#nav li.current a { color: #6e0e08; }
 #resume a:hover, #resume a:focus { color: #313131; }
 
 #resume h1 {
-   font: 18px/24px 'opensans-bold', sans-serif;
+   font: 18px/24px;
    text-transform: uppercase;
    letter-spacing: 1px;
    color: #08686e;
 }
 #resume h1 span {
-   border-bottom: 3px solid #08356e;
    padding-bottom: 6px;
 }
 #resume h3 {
-   font: 25px/30px 'opensans-bold', sans-serif;
+   font: 25px/30px;
    color:#08686e;
 }
 
@@ -285,16 +287,7 @@ ul#nav li.current a { color: #6e0e08; }
    padding-bottom: 24px;
    border-bottom: 1px solid #E8E8E8;
 }
-#resume .info {
-   font: 16px/24px 'librebaskerville-italic', serif;
-   color: #6E7881;
-   margin-bottom: 18px;
-   margin-top: 9px;
-}
-#resume .info span {
-   margin-right: 5px;
-   margin-left: 5px;
-}
+
 #resume .date {
    font: 15px/24px 'opensans-regular', sans-serif;
    margin-top: 6px;
@@ -331,23 +324,22 @@ ul#nav li.current a { color: #6e0e08; }
    color:#fff;
 }
 #blog h1 {
-   font: 18px/24px 'opensans-bold', sans-serif;
+   font: 18px/24px;
    text-transform: uppercase;
    letter-spacing: 1px;
    color:#fff;
 }
 #blog h1 span {
-   border-bottom: 3px solid #08356e;
    padding-bottom: 6px;
 }
 
 #blog h3 a{
-   font: 25px/30px 'opensans-bold', sans-serif;
+   font: 25px/30px;
    color:#08686e;
 }
 
 #blog.component h3 a{
-   font: 25px/30px 'opensans-bold', sans-serif;
+   font: 25px/30px;
    color:#fff;
 }
 
@@ -430,7 +422,7 @@ ul#nav li.current a { color: #6e0e08; }
 }
 .blog-item .blog-item-meta { padding: 18px }
 .blog-item .blog-item-meta h5 {
-   font: 14px/21px 'opensans-bold', sans-serif;
+   font: 14px/21px;
    color: #fff;
 }
 .blog-item .blog-item-meta p {
@@ -495,7 +487,7 @@ ul#nav li.current a { color: #6e0e08; }
 /* subscription form */
 #subscription form { margin-bottom: 30px; }
 #subscription label {
-   font: 15px/24px 'opensans-bold', sans-serif;
+   font: 15px/24px;
    margin: 12px 0;
    color: #fff;
 	display: inline-block;
@@ -557,17 +549,16 @@ ul#nav li.current a { color: #6e0e08; }
 }
 
 #books h1 {
-   font: 18px/24px 'opensans-bold', sans-serif;
+   font: 18px/24px;
    text-transform: uppercase;
    letter-spacing: 1px;
    color:#08686e;
 }
 #books h1 span {
-   border-bottom: 3px solid #08356e;
    padding-bottom: 6px;
 }
 #books h3 {
-   font: 25px/30px 'opensans-bold', sans-serif;
+   font: 25px/30px;
    color:#08686e;
 }
 #books h3:hover {
@@ -649,7 +640,7 @@ ul#nav li.current a { color: #6e0e08; }
 }
 .books-item .books-item-meta { padding: 18px }
 .books-item .books-item-meta h5 {
-   font: 14px/21px 'opensans-bold', sans-serif;
+   font: 14px/21px;
    color: #fff;
 }
 .books-item .books-item-meta p {
@@ -679,7 +670,7 @@ ul#nav li.current a { color: #6e0e08; }
 }
 .popup-modal .description-box { padding: 12px 36px 18px 36px; }
 .popup-modal .description-box h4 {
-   font: 15px/24px 'opensans-bold', sans-serif;
+   font: 15px/24px;
 	margin-bottom: 12px;
    color: #111;
 }
@@ -706,7 +697,7 @@ ul#nav li.current a { color: #6e0e08; }
 }
 .popup-modal .link-box a {
    color: #fff;
-	font: 11px/21px 'opensans-bold', sans-serif;
+	font: 11px/21px;
 	text-transform: uppercase;
    letter-spacing: 3px;
    cursor: pointer;
@@ -837,7 +828,7 @@ ul#nav li.current a { color: #6e0e08; }
 #contact a:hover, #contact a:focus { color: #fff; }
 
 #contact h1 {
-   font: 18px/24px 'opensans-bold', sans-serif;
+   font: 18px/24px;
    text-transform: uppercase;
    letter-spacing: 3px;
    color: #EBEEEE;
@@ -856,7 +847,7 @@ ul#nav li.current a { color: #6e0e08; }
 }
 
 #contact h4 {
-   font: 16px/24px 'opensans-bold', sans-serif;
+   font: 16px/24px;
    color: #EBEEEE;
    margin-bottom: 6px;
 }
@@ -870,7 +861,7 @@ ul#nav li.current a { color: #6e0e08; }
 /* contact form */
 #contact form { margin-bottom: 30px; }
 #contact label {
-   font: 15px/24px 'opensans-bold', sans-serif;
+   font: 15px/24px;
    margin: 12px 0;
    color: #fff;
 	display: inline-block;

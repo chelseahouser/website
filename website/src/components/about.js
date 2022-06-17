@@ -30,7 +30,6 @@ class About extends Component {
                 problems to solve and new technologies to conquer. I am often spoiling my 
                 pets, brewing beer, and running a guild in Final Fantasy XIV in my free time.
               </p>
-              <br />
               <p>
                 <a href="#contact" className="button">
                   <i className="fa fa-download"></i>&nbsp;Contact Me

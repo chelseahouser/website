@@ -66,7 +66,6 @@ function BlogUnsubscribe(){
       <BlogNav />
       <section id="subscription">
         <h2>Unsubscribe</h2>
-        <br />
         <h3>Sorry to see you go, but I understand. Please enter your email below to unsubscribe.</h3>
         <div className="main-col">
           <GoogleReCaptcha onVerify={newToken => {if(token == undefined) {setToken(newToken);}}} />

@@ -69,10 +69,8 @@ class Resume extends Component {
         <h3>{work.companyName}</h3>
         <p className="info">
           {work.title}
-          <span>&bull;</span>{" "}
-          <em className="date">
-            {new moment.unix(work.startDate._seconds).format("MMM YYYY")} - {work.current? "Current" : new moment.unix(work.endDate._seconds).format("MMM YYYY")}
-          </em>
+          &nbsp;&bull;&nbsp;
+          {new moment.unix(work.startDate._seconds).format("MMM YYYY")} - {work.current? "Current" : new moment.unix(work.endDate._seconds).format("MMM YYYY")}
         </p>
         <p>{work.description}</p>
       </div>
@@ -84,8 +82,9 @@ class Resume extends Component {
       <div key={education.school}>
         <h3>{education.school}</h3>
         <p className="info">
-          {education.degree} <span>&bull;</span>
-          <em className="date">{ new moment.unix(education.graduation._seconds).format("YYYY") }</em>
+          {education.degree}
+          &nbsp;&bull;&nbsp;
+          <span className="date">{ new moment.unix(education.graduation._seconds).format("YYYY") }</span>
         </p>
         <p>{education.description}</p>
       </div>
@@ -146,22 +145,6 @@ class Resume extends Component {
             </div>
           </div>
         </div>
-
-        {/* <div className="row skill">
-          <div className="three columns header-col">
-            <h1>
-              <span>Skills</span>
-            </h1>
-          </div>
-
-          <div className="nine columns main-col">
-            <div className="row item">
-              <div className="twelve columns">
-                {this.buildSkillList(this.state.skills)}
-              </div>
-            </div>
-          </div>
-        </div> */}
 
         <div className="row certifications">
           <div className="three columns header-col">

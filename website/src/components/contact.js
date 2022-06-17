@@ -91,7 +91,6 @@ function Contact() {
       <div className="row">
         <div className="main-col">
           <h2>Send me a message</h2>
-          <br />
         </div>
         <div className="main-col">
           <GoogleReCaptcha onVerify={newToken => {if(token == undefined) {setToken(newToken);}}} />

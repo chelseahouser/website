@@ -30,11 +30,12 @@ class Books extends Component {
       <div key={book.title}>
         <h3 onClick={()=> window.open(book.link, "_blank")}>{book.title}</h3>
         <p className="info">
-          {book.author}          
-          <span>&bull;</span>{" "}
-          <em className="date">
-            <a href={book.link} >Link</a>  
-          </em><br />{book.description}</p>
+          {book.author}
+          &nbsp;&bull;&nbsp;
+          <a href={book.link} >Link</a>  
+          <br />
+          {book.description}
+        </p>
       </div>
     );
   }

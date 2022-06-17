@@ -68,7 +68,6 @@ function BlogSubscribe(){
       <BlogNav />
       <section id="subscription">
         <h2>Subscribe</h2>
-        <br />
         <h3>Submit your email below to get a notification when a new blog is posted.</h3>
         <div className="main-col">
           <GoogleReCaptcha onVerify={newToken => {if(token == undefined) {setToken(newToken);}}} />

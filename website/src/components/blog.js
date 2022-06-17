@@ -37,10 +37,8 @@ class Blog extends Component {
 
         <p className="info">
           {new moment.unix(blog.date._seconds).format("MMM YYYY")}
-          <span>&bull;</span>{" "}
-          <em className="date">
-            {blog.tags ? blog.tags.join(', ') : ""}  
-          </em>
+          &nbsp;&bull;&nbsp;
+          {blog.tags ? blog.tags.join(', ') : ""}  
         </p>
         <p>{blog.description}</p>
       </div>
@@ -52,19 +50,11 @@ class Blog extends Component {
         {this.state.blogPosts.map((blog) => {
           return this.buildBlogPost(blog);
         })}
-        {this.state.blogPosts.length > 3 ?
-          (<div className="row post">      
-              <div className="header-col">
-                <h3><a href="/blogs">See More</a></h3>
-              </div>
-          </div>)
-        : 
-          (<div className="row post">      
-              <div className="header-col">
-                <h3><a href="/blogs">More coming soon...</a></h3>
-              </div>
-          </div>)
-        }
+        <div className="row post">      
+            <div className="header-col">
+              <h3><a href="/blogs">Read More</a></h3>
+            </div>
+        </div>
       </section>
     );
   }
