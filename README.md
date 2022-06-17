@@ -33,6 +33,9 @@ The website consists of two apps(UI and API). The UI is a standard react app wit
 - To deploy the API to firebase, navigate to `/api` and run `firebase deploy`.
 - To deploy the UI to firebase, navigate to `/website` and run `npm run build` and `firebase deploy`.
 
+Some updates appear to have been made for authentication and security. As a result the new method for deployment requires getting an authentication token that is passed with the deploy command.
+`firebase login:ci` will give you a token that can be appended to the deploy command `firebase deploy --token "$FIREBASE_TOKEN"`
+
 ## Testing
 
 - To run test ensure the application is running locally.

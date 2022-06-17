@@ -31,9 +31,7 @@ class About extends Component {
                 pets, brewing beer, and running a guild in Final Fantasy XIV in my free time.
               </p>
               <p>
-                <a href="#contact" className="button">
-                  <i className="fa fa-download"></i>&nbsp;Contact Me
-                </a>
+                <a href="#contact" className="button">Contact Me</a>
               </p>
             </div>
           </div>

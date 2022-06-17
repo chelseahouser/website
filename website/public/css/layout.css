@@ -60,7 +60,7 @@ header .banner {
 
 header .banner-text { width: 100%; }
 header .banner-text h1 {
-   font-size: 90px;
+   font: 90px/1.1em 'opensans-bold', sans-serif; 
    color: #fff;
    letter-spacing: -2px;
    margin: 0 auto 18px auto;
@@ -116,7 +116,7 @@ header .scrolldown a {
    -o-transition: all .3s ease-in-out;
    transition: all .3s ease-in-out;
 }
-header .scrolldown a:hover { color: #0762f9; }
+header .scrolldown a:hover { color: #08356e; }
 
 /* primary navigation
 --------------------------------------------------------------------- */
@@ -177,6 +177,7 @@ ul#nav li a {
 	transition: color .2s ease-in-out;
 }
 
+ul#nav li a:hover, a:focus { color: #08356e; }
 ul#nav li a:active { background-color: transparent !important; }
 ul#nav li.current a { color: #6e0e08; }
 
@@ -222,31 +223,35 @@ ul#nav li.current a { color: #6e0e08; }
    padding-top: 6px;
 }
 #about .main-col { padding-right: 5%; }
-#about .download .button {
-   margin-top: 6px;
-   background: #08356e;
-   border-radius:10px;
-}
-#about .download .button:hover {
-   background: #fff;
-   color: #08356e;
-}
-#about .download .button i {
-   margin-right: 15px;
-   font-size: 20px;
-}
+
 #about .contact-details .button {
    margin-top: 6px;
    background: #08356e;
    border-radius: 10px;
 }
 #about .contact-details .button:hover {
-   background: #fff;
-   color: #08356e;
+	background: #08356e;
+	color: #fff;
 }
 #about .contact-details .button i {
    margin-right: 15px;
    font-size: 20px;
+}
+
+#about .button {
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	color:#fff;
+   background: #08356e;
+	border: none;
+   cursor: pointer;
+   height: auto;
+   display: inline-block;
+	border-radius: 10px;
+}
+#about .button:hover {
+	background: #08356e;
+	color: #fff;
 }
 
 
@@ -525,8 +530,8 @@ ul#nav li.current a { color: #6e0e08; }
 	border-radius: 10px;
 }
 #subscription button.submit:hover {
-	color: #08356e;
-	background: #fff;
+	background: #08356e;
+	color: #fff;
 }
 #subscription span.required {
 	color: #08356e;
@@ -901,8 +906,8 @@ ul#nav li.current a { color: #6e0e08; }
 	border-radius: 10px;
 }
 #contact button.submit:hover {
-	color: #08356e;
-	background: #fff;
+	background: #08356e;
+	color: #fff;
 }
 #contact span.required {
 	color: #08356e;
