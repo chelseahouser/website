@@ -2,7 +2,7 @@ import React from "react";
 
 function BlogNav(){
   return (
-      <nav id="nav-wrap">
+      <nav id="nav-wrap" aria-label="Blog Navigation">
         <a className="mobile-btn" href="#nav-wrap" title="Show navigation">
           Show navigation
         </a>
@@ -12,17 +12,17 @@ function BlogNav(){
 
         <ul id="nav" className="nav">
           <li>
-            <a href="/#home">
+            <a href="/#home" aria-label="Home Page Link">
               Home
             </a>
           </li>
           <li>
-            <a href="/blogs">
+            <a href="/blogs" aria-label="All Blogs List Link">
               Blogs
             </a>
           </li>
           <li>
-            <a href="/subscribe">
+            <a href="/subscribe" aria-label="Subscription Form Link">
               Subscribe
             </a>
           </li>

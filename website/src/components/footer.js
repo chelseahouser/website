@@ -4,16 +4,17 @@ import Fade from "react-reveal";
 class Footer extends Component {
   render() {
     return (
-      <footer>
+      <footer aria-label="footer">
         <div className="row">
           <Fade bottom>
             <div className="twelve columns">
-              <ul className="social-links">
+              <ul className="social-links" aria-label="Social Media Links">
                 <li key="linkedin">
                   <a
                     href="https://www.linkedin.com/in/chelsea-houser/"
                     target="_blank"
                     rel="noreferrer noopener"
+                    aria-label="LinkedIn Link"
                   >
                     <i className={"fa fa-linkedin"}></i>
                   </a>
@@ -23,25 +24,20 @@ class Footer extends Component {
                     href="https://github.com/chelseahouser"
                     target="_blank"
                     rel="noreferrer noopener"
+                    aria-label="GitHub Link"
                   >
                     <i className={"fa fa-github"}></i>
                   </a>
                 </li>
               </ul>
 
-              <ul className="copyright">
+              <ul className="copyright" aria-label="Copyright">
                 <li>
                   &copy; Copyright {new Date().getFullYear()} ChelseaHouser
                 </li>
               </ul>
             </div>
           </Fade>
-
-          {/* <div id="go-top">
-            <a className="smoothscroll" title="Back to Top" href="#home">
-              <i className="icon-up-open"></i>
-            </a>
-          </div> */}
         </div>
       </footer>
     );

@@ -45,7 +45,7 @@ function BlogPost(){
     <div className="App">
       <ToastContainer />
       <BlogNav />
-      <section id="blog">
+      <section id="blog" aria-label={"Blog Post: " + data.title}>
           <h2>{data.title}</h2>
           <p className="info">
             {new moment.unix(data.date._seconds).format("MMM YYYY")}

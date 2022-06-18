@@ -66,7 +66,7 @@ function BlogSubscribe(){
     <div className="App">
       <ToastContainer />
       <BlogNav />
-      <section id="subscription">
+      <section id="subscription" aria-label="Email Subscription Form">
         <h2>Subscribe</h2>
         <h3>Submit your email below to get a notification when a new blog is posted.</h3>
         <div className="main-col">
@@ -80,6 +80,7 @@ function BlogSubscribe(){
                   id="subscribeEmail"
                   name="subscribeEmail"
                   placeholder="Email (Required)"
+                  aria-label="Your Email Input"
                   onChange={handleChange.bind(this)}
                 />
               </div>
@@ -87,6 +88,7 @@ function BlogSubscribe(){
                 <button
                   className="submit"
                   data-action='submit'
+                  aria-label="Submit Button"
                   onClick={subscribe.bind(this)}
                 >
                   Submit

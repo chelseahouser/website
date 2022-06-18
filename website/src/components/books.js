@@ -42,7 +42,7 @@ class Books extends Component {
 
   render() {
     return (
-      <section id="books">
+      <section id="books" aria-label="Reading List">
         <div className="row localStore">
           <div className="three columns header-col">
             <h1>
@@ -50,7 +50,7 @@ class Books extends Component {
             </h1>
           </div>
 
-          <div className="nine columns main-col">
+          <div className="nine columns main-col" aria-label="Bookstore Link Information">
             <div className="row item">
               <div className="twelve columns">
               <div key="localStore">
@@ -64,7 +64,7 @@ class Books extends Component {
             </div>
           </div>
         </div>
-        <div className="row currentlyReading">
+        <div className="row currentlyReading" aria-label="Currently Reading">
           <div className="three columns header-col">
             <h1>
               <span>Currently Reading</span>
@@ -84,7 +84,7 @@ class Books extends Component {
           </div>
         </div>
 
-        <div className="row recommended">
+        <div className="row recommended" aria-label="Recommended Books">
           <div className="three columns header-col">
             <h1>
               <span>Recommended</span>
@@ -104,7 +104,7 @@ class Books extends Component {
           </div>
         </div>
 
-        <div className="row toRead">
+        <div className="row toRead" aria-label="Books To Read">
           <div className="three columns header-col">
             <h1>
               <span>To Read</span>

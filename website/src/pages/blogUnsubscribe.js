@@ -64,7 +64,7 @@ function BlogUnsubscribe(){
     <div className="App">
       <ToastContainer />
       <BlogNav />
-      <section id="subscription">
+      <section id="subscription" aria-label="Unsubscribe Form">
         <h2>Unsubscribe</h2>
         <h3>Sorry to see you go, but I understand. Please enter your email below to unsubscribe.</h3>
         <div className="main-col">
@@ -78,6 +78,7 @@ function BlogUnsubscribe(){
                   id="subscribeEmail"
                   name="subscribeEmail"
                   placeholder="Email (Required)"
+                  aria-label="Your Email"
                   onChange={handleChange.bind(this)}
                 />
               </div>
@@ -85,6 +86,7 @@ function BlogUnsubscribe(){
                 <button
                   className="submit"
                   data-action='submit'
+                  aria-label="Submit Button"
                   onClick={subscribe.bind(this)}
                 >
                   Submit

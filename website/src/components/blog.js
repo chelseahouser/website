@@ -46,11 +46,11 @@ class Blog extends Component {
   }
   render() {
     return (
-      <section id="blog" className={"component"}>
+      <section id="blog" className={"component"} aria-label="Blog Posts">
         {this.state.blogPosts.map((blog) => {
           return this.buildBlogPost(blog);
         })}
-        <div className="row post">      
+        <div className="row post" aria-label="More blog posts page link">      
             <div className="header-col">
               <h3><a href="/blogs">Read More</a></h3>
             </div>

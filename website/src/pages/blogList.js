@@ -46,7 +46,7 @@ function BlogList() {
     <div className="App">
       <ToastContainer />
       <BlogNav />
-      <section id="blog">
+      <section id="blog" aria-label="List of Blog Posts">
         {blogPosts ? blogPosts.map((blog) => {
           return buildBlogPost(blog);
         }) : ""}   

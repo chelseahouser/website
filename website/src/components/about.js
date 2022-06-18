@@ -6,7 +6,7 @@ class About extends Component {
     const profilepic = "images/profilepic.png";
 
     return (
-      <section id="about">
+      <section id="about" aria-label="About Me Section">
         <Fade duration={1000}>
           <div className="row">
             <div className="three columns">
@@ -16,12 +16,13 @@ class About extends Component {
                 alt="Chelsea Houser Profile Pic"
                 width='215px'
                 height='215px'
+                title="Profile Picture"
               />
             </div>
             <div className="nine columns main-col">
               <h2>About Me</h2>
 
-              <p>
+              <p aria-label="General Description">
                 I am a full-stack developer with over a decade of experience working in 
                 consulting. My work has exposed me to a variety of projects, industries, 
                 and technologies. Growing and thriving in this fast-paced environment, 
@@ -32,8 +33,12 @@ class About extends Component {
                 problems to solve and new technologies to conquer. I am often spoiling my 
                 pets, brewing beer, and running a guild in Final Fantasy XIV in my free time.
               </p>
-              <p>
-                <a href="#contact" className="button">Contact Me</a>
+              <p aria-label="Contact Form Button">
+                <a 
+                  href="#contact" 
+                  className="button" 
+                  title="Contact Me" 
+                  aria-label="Contact Button">Contact Me</a>
               </p>
             </div>
           </div>

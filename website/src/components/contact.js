@@ -87,7 +87,7 @@ function Contact() {
   }
 
   return (
-    <section id="contact">
+    <section id="contact" aria-label="Contact Me Form">
       <div className="row">
         <div className="main-col">
           <h2>Send me a message</h2>
@@ -103,6 +103,7 @@ function Contact() {
                   id="contactName"
                   name="contactName"
                   placeholder="Name (Required)"
+                  aria-label="Your Name Input"
                   onChange={handleChange.bind(this)}
                 />
               </div>
@@ -114,6 +115,7 @@ function Contact() {
                   id="contactEmail"
                   name="contactEmail"
                   placeholder="Email (Required)"
+                  aria-label="Your Email Input"
                   onChange={handleChange.bind(this)}
                 />
               </div>
@@ -125,6 +127,7 @@ function Contact() {
                   id="contactSubject"
                   name="contactSubject"
                   placeholder="Subject"
+                  aria-label="Message Subject Input"
                   onChange={handleChange.bind(this)}
                 />
               </div>
@@ -136,6 +139,7 @@ function Contact() {
                   id="contactMessage"
                   name="contactMessage"
                   placeholder="Message (Required)"
+                  aria-label="Message Input"
                   onChange={handleChange.bind(this)}
                 ></textarea>
               </div>
@@ -144,6 +148,7 @@ function Contact() {
                 <button
                   className="submit"
                   data-action='submit'
+                  aria-label="Contact Form Submit Button"
                   onClick={sendContactEmail.bind(this)}
                 >
                   Submit

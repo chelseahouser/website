@@ -5,10 +5,10 @@ import Fade from "react-reveal";
 class Header extends Component {
   render() {
     return (
-      <header id="home">
-        <ParticlesBg type="cobweb" bg={true} />
+      <header id="home" aria-label="Home">
+        <ParticlesBg type="cobweb" bg={true} aria-label="Background Image"/>
 
-        <nav id="nav-wrap">
+        <nav id="nav-wrap" aria-label="Page Navigation">
           <a className="mobile-btn" href="#nav-wrap" title="Show navigation">
             Show navigation
           </a>
@@ -16,49 +16,53 @@ class Header extends Component {
             Hide navigation
           </a>
 
-          <ul id="nav" className="nav">
+          <ul id="nav" className="nav" role="navigation">
             <li className="current">
-              <a className="smoothscroll" href="#home">
+              <a className="smoothscroll" href="#home" title="Home">
                 Home
               </a>
             </li>
 
             <li>
-              <a className="smoothscroll" href="#about">
+              <a className="smoothscroll" href="#about" title="About Me">
                 About
               </a>
             </li>
 
             <li>
-              <a className="smoothscroll" href="#resume">
+              <a className="smoothscroll" href="#resume" title="My Resume">
                 Resume
               </a>
             </li>
 
             <li>
-              <a className="smoothscroll" href="#blog">
+              <a className="smoothscroll" href="#blog" title="My Blog">
                 Blog
               </a>
             </li>
 
             <li>
-              <a className="smoothscroll" href="#books">
+              <a className="smoothscroll" href="#books" title="My Reading List">
                 Books
               </a>
             </li>
 
             <li>
-              <a className="smoothscroll" href="#contact">
+              <a 
+              className="smoothscroll" 
+              href="#contact" 
+              title="Contact Me"
+              aria-label="Contact Button">
                 Contact
               </a>
             </li>
           </ul>
         </nav>
 
-        <div className="row banner">
+        <div className="row banner" aria-label="Title Page">
           <div className="banner-text">
             <Fade bottom>
-              <h1 className="responsive-headline">Chelsea Houser</h1>
+              <h1 className="responsive-headline" aria-label="Chelsea Houser">Chelsea Houser</h1>
             </Fade>
             <Fade bottom duration={1200}>
               <h3>
@@ -73,6 +77,8 @@ class Header extends Component {
                     href="https://www.linkedin.com/in/chelsea-houser/"
                     target="_blank"
                     rel="noreferrer noopener"
+                    title="LinkedIn"
+                    aria-label="LinkedIn Link"
                   >
                     <i className={"fa fa-linkedin"}></i>
                   </a>
@@ -82,6 +88,8 @@ class Header extends Component {
                     href="https://github.com/chelseahouser"
                     target="_blank"
                     rel="noreferrer noopener"
+                    title="GitHub"
+                    aria-label="GitHub Link"
                   >
                     <i className={"fa fa-github"}></i>
                   </a>

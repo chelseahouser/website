@@ -93,8 +93,8 @@ class Resume extends Component {
 
   render() {
     return (
-      <section id="resume">
-        <div className="row work">
+      <section id="resume" aria-label="Resume Section">
+        <div className="row work" aria-label="Work Experience">
           <div className="three columns header-col">
             <h1>
               <span>Work</span>
@@ -108,7 +108,7 @@ class Resume extends Component {
           </div>
         </div>
 
-        <div className="row education">
+        <div className="row education" aria-label="Education">
           <div className="three columns header-col">
             <h1>
               <span>Education</span>
@@ -126,7 +126,7 @@ class Resume extends Component {
           </div>
         </div>
 
-        <div className="row certifications">
+        <div className="row certifications" aria-label="Certifications">
           <div className="three columns header-col">
             <h1>
               <span>Certifications</span>
