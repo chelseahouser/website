@@ -12,17 +12,17 @@ function BlogNav(){
 
         <ul id="nav" className="nav">
           <li>
-            <a href="/#home" aria-label="Home Page Link">
+            <a href="/#home" aria-label="Home Page Link" title="Home">
               Home
             </a>
           </li>
           <li>
-            <a href="/blogs" aria-label="All Blogs List Link">
+            <a href="/blogs" aria-label="All Blogs List Link" title="All Blog Posts">
               Blogs
             </a>
           </li>
           <li>
-            <a href="/subscribe" aria-label="Subscription Form Link">
+            <a href="/subscribe" aria-label="Subscription Form Link" title="Email Subscription">
               Subscribe
             </a>
           </li>

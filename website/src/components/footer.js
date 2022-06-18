@@ -15,6 +15,7 @@ class Footer extends Component {
                     target="_blank"
                     rel="noreferrer noopener"
                     aria-label="LinkedIn Link"
+                    title="LinkedIn"
                   >
                     <i className={"fa fa-linkedin"}></i>
                   </a>
@@ -25,6 +26,7 @@ class Footer extends Component {
                     target="_blank"
                     rel="noreferrer noopener"
                     aria-label="GitHub Link"
+                    title="GitHub"
                   >
                     <i className={"fa fa-github"}></i>
                   </a>
