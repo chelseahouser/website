@@ -55,7 +55,7 @@ class Resume extends Component {
   buildWorkList(work) {
     return (
       <div key={work.companyName}>
-        <h3>{work.companyName}</h3>
+        <h2>{work.companyName}</h2>
         <p className="info">
           {work.title}
           &nbsp;&bull;&nbsp;
@@ -69,7 +69,7 @@ class Resume extends Component {
   buildEducationList(education) {
     return (
       <div key={education.school}>
-        <h3>{education.school}</h3>
+        <h2>{education.school}</h2>
         <p className="info">
           {education.degree}
           &nbsp;&bull;&nbsp;
@@ -83,7 +83,7 @@ class Resume extends Component {
   buildCertificationList(certification) {
     return (
       <div key={certification.name}>
-        <h3>{certification.name}</h3>
+        <h2>{certification.name}</h2>
         <p className="info">
           <em className="date">{ new moment.unix(certification.date._seconds).format("YYYY") }</em>
         </p>

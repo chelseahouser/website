@@ -52,7 +52,7 @@ class Blog extends Component {
         })}
         <div className="row post" aria-label="More blog posts page link">      
             <div className="header-col">
-              <h3><a href="/blogs">Read More</a></h3>
+              <h3><a href="/blogs" aria-label="View All Blog Posts" title="View All Blog Posts">Read More</a></h3>
             </div>
         </div>
       </section>

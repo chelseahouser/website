@@ -65,14 +65,14 @@ header .banner-text h1 {
    letter-spacing: -2px;
    margin: 0 auto 18px auto;
 }
-header .banner-text h3 {
-   font-size: 18px;
+header .banner-text h2 {
+   font-size: 18px/1.1em;
    color: #ddd;
    margin: 0 auto;
    width: 70%;
 }
-header .banner-text h3 span,
-header .banner-text h3 a {
+header .banner-text h2 span,
+header .banner-text h2 a {
    color: #fff;
 }
 header .banner-text hr {
@@ -86,7 +86,7 @@ header .banner-text hr {
 header .social {
    margin: 24px 0;
    padding: 0;
-   font-size: 30px;
+   font-size: 42px;
 }
 header .social li {
    display: inline-block;
@@ -279,7 +279,7 @@ ul#nav li.current a { color: #6e0e08; }
 #resume h1 span {
    padding-bottom: 6px;
 }
-#resume h3 {
+#resume h2 {
    font-size: 25px/30px;
    color:#08686e;
 }

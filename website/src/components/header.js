@@ -65,9 +65,9 @@ class Header extends Component {
               <h1 className="responsive-headline" aria-label="Chelsea Houser">Chelsea Houser</h1>
             </Fade>
             <Fade bottom duration={1200}>
-              <h3>
+              <h2>
                 Senior Software Engineer and Consultant at Rural Sourcing Inc
-              </h3>
+              </h2>
             </Fade>
             <hr />
             <Fade bottom duration={2000}>
