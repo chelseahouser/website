@@ -103,7 +103,7 @@ header .social li {
    padding: 0;
 }
 header .social li a { color: var(--font-color); }
-header .social li a:hover { color: var(--link-color); }
+header .social li a:hover { color: var(--highlight-color); }
 
 /* scrolldown link */
 header .scrolldown a {
@@ -125,7 +125,7 @@ header .scrolldown a {
    -o-transition: all .3s ease-in-out;
    transition: all .3s ease-in-out;
 }
-header .scrolldown a:hover { color: var(--link-color); }
+header .scrolldown a:hover { color: var(--highlight-color); }
 
 /* primary navigation
 --------------------------------------------------------------------- */
@@ -186,7 +186,7 @@ ul#nav li a {
 	transition: color .2s ease-in-out;
 }
 
-ul#nav li a:hover, a:focus { color: var(--link-color); }
+ul#nav li a:hover, a:focus { color: var(--highlight-color); }
 ul#nav li a:active { background-color: transparent !important; }
 ul#nav li.current a { color: var(--highlight-color); }
 
@@ -208,7 +208,7 @@ ul#nav li.current a { color: var(--highlight-color); }
  }
 
 #about a, #about a:visited  { color: var(--font-color); }
-#about a:hover, #about a:focus { color: var(--link-color); }
+#about a:hover, #about a:focus { color: var(--highlight-color); }
 
 #about h2 {
    font-size: 22px/30px;
@@ -239,7 +239,7 @@ ul#nav li.current a { color: var(--highlight-color); }
    border-radius: 10px;
 }
 #about .contact-details .button:hover {
-	background: var(--link-color);
+	background: var(--highlight-color);
 	color: var(--font-color);
 }
 #about .contact-details .button i {
@@ -259,7 +259,7 @@ ul#nav li.current a { color: var(--highlight-color); }
 	border-radius: 10px;
 }
 #about .button:hover {
-	background: var(--link-color);
+	background: var(--highlight-color);
 	color: var(--font-color);
 }
 
@@ -509,7 +509,7 @@ ul#nav li.current a { color: var(--highlight-color); }
 #subscription textarea,
 #subscription select {
    padding: 10px 20px;
-	color: var(--font-color);
+	color: var(--primary-color);
 	background: var(--font-color);
 	border: 0;
 	outline: none;
@@ -536,7 +536,7 @@ ul#nav li.current a { color: var(--highlight-color); }
 	border-radius: 10px;
 }
 #subscription button.submit:hover {
-	background: var(--link-color);
+	background: var(--highlight-color);
 	color: var(--font-color);
 }
 #subscription span.required {
@@ -680,7 +680,7 @@ ul#nav li.current a { color: var(--highlight-color); }
    background: var(--primary-color);
    padding-top: 96px;
    padding-bottom: 102px;
-   color: var(--font-color);
+   color: var(--primary-color);
 }
 #contact .section-head { margin-bottom: 42px; }
 
@@ -723,7 +723,7 @@ ul#nav li.current a { color: var(--highlight-color); }
 #contact label {
    font-size: 15px/24px;
    margin: 12px 0;
-   color: var(--font-color);
+   color: var(--primary-color);
 	display: inline-block;
    width: 26%;
 }
@@ -734,7 +734,7 @@ ul#nav li.current a { color: var(--highlight-color); }
 #contact textarea,
 #contact select {
    padding: 10px 20px;
-	color: var(--font-color);
+	color: var(--primary-color);
 	background: var(--font-color);
 	border: 0;
 	outline: none;
@@ -761,7 +761,7 @@ ul#nav li.current a { color: var(--highlight-color); }
 	border-radius: 10px;
 }
 #contact button.submit:hover {
-	background: var(--link-color);
+	background: var(--highlight-color);
 	color: var(--font-color);
 }
 #contact span.required {
@@ -802,7 +802,7 @@ footer {
 }
 
 footer a, footer a:visited { color: var(--font-color); }
-footer a:hover, footer a:focus { color: var(--link-color); }
+footer a:hover, footer a:focus { color: var(--highlight-color); }
 
 /* copyright */
 footer .copyright {
