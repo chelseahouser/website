@@ -35,7 +35,7 @@ class Footer extends Component {
 
               <ul className="copyright" aria-label="Copyright">
                 <li>
-                  &copy; Copyright {new Date().getFullYear()} ChelseaHouser
+                  &copy; Copyright {new Date().getFullYear()} Chelsea Houser
                 </li>
               </ul>
             </div>

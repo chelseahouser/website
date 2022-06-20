@@ -9,7 +9,8 @@ module.exports = {
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:cypress/recommended",
-    "plugin:react-hooks/recommended"
+    "plugin:react-hooks/recommended",
+    "plugin:css/recommended"
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -18,7 +19,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: "module",
   },
-  plugins: ["react", "cypress", 'react-hooks'],
+  plugins: ["react", "cypress", 'react-hooks', "css"],
   ignorePatterns: ["/public/*", "/build/*", "/cypress/*"],
   rules: {
     "no-console": "warn",
