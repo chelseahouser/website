@@ -3,7 +3,7 @@ import Fade from "react-reveal";
 
 class About extends Component {
   render() {
-    const profilepic = "images/profilepic.png";
+    const profilepic = "images/profilepic.webp";
 
     return (
       <section id="about" aria-label="About Me Section">

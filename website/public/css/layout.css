@@ -402,7 +402,7 @@ ul#nav li.current a { color: var(--highlight-color); }
 	-o-transition: opacity 0.3s ease-in-out;
 	transition: opacity 0.3s ease-in-out;
 
-   background: url(../images/overlay-bg.png) repeat;
+   background: black;
 }
 .blog-item .item-wrap .link-icon {
    display: block;
@@ -620,7 +620,7 @@ ul#nav li.current a { color: var(--highlight-color); }
 	-o-transition: opacity 0.3s ease-in-out;
 	transition: opacity 0.3s ease-in-out;
 
-   background: url(../images/overlay-bg.png) repeat;
+   background: black;
 }
 .books-item .item-wrap .link-icon {
    display: block;
