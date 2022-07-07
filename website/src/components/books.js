@@ -11,11 +11,11 @@ export default function Books() {
   function buildBookList(book) {
     return (
       <div key={book.title}>
-        <h3 onClick={()=> window.open(book.link, "_blank")} title={"Buy " + book.title}>{book.title}</h3>
+        <h3 onClick={()=> window.open(book.link, "_blank", "noopener", "noreferrer")} title={"Buy " + book.title}>{book.title}</h3>
         <p className="info">
           {book.author}
           &nbsp;&bull;&nbsp;
-          <a href={book.link} >Link</a>  
+          <a href={book.link} target="_blank" rel="noreferrer noopener" >Link</a>  
           <br />
           {book.description}
         </p>
@@ -36,9 +36,9 @@ export default function Books() {
           <div className="row item">
             <div className="twelve columns">
             <div key="localStore">
-              <h3 onClick={()=> window.open("https://bookstorelink.com/", "_blank")}>Bookstore Link</h3>
+              <h3 onClick={()=> window.open("https://bookstorelink.com/", "_blank", "noopener", "noreferrer")}>Bookstore Link</h3>
               <p className="info">Now more than ever our local independent bookstores can 
-              use our help. <a href="https://bookstorelink.com/">Bookstore Link</a> connects 
+              use our help. <a href="https://bookstorelink.com/" target="_blank" rel="noreferrer noopener">Bookstore Link</a> connects 
               people to local stores to bring money back into their community. These are not affiliate links,
               shop local and support your community bookstores.</p>
             </div>
