@@ -1,34 +1,16 @@
-import React, { Component } from "react";
-import axios from "axios";
-import { API_URL } from "../config";
+import React, { useEffect, useState } from "react";
 import moment from 'moment';
-import { failedToLoadData } from '../utilities/toastMessages';
-import 'react-toastify/dist/ReactToastify.css';
 import { TitleNavigation } from "../utilities/titleNavigation";
+import { getAPIData } from "../utilities/apiRequests";
 
-class Blog extends Component {
-  constructor(props) {
-    super(props);
+export default function Blog() {
+  const [ blogPosts, setBlogPosts ] = useState([]);
 
-    this.state = {
-      blogPosts: [],
-    };
-  }
+  useEffect(() => {
+    getAPIData("/blogs/3", (response) => setBlogPosts(response.data));
+  })
 
-  componentDidMount() {
-    axios
-      .get(API_URL + "/blogs/3")
-      .then((response) => {
-        this.setState({
-          blogPosts: response.data,
-        });
-      })
-      .catch(() => {
-        failedToLoadData();
-      });
-  }
-
-  buildBlogPost(blog) {
+  function buildBlogPost(blog) {
     return (
       <div className="row post" key={blog.blogId}>
         <div className="header-col">
@@ -44,20 +26,15 @@ class Blog extends Component {
       </div>
     );
   }
-  render() {
-    return (
-      <section id="blog" className={"component"} aria-label="Blog Posts">
-        {this.state.blogPosts.map((blog) => {
-          return this.buildBlogPost(blog);
-        })}
-        <div className="row post" aria-label="More blog posts page link">      
-            <div className="header-col">
-              <h3><a href="/blogs" aria-label="View All Blog Posts" title="View All Blog Posts">Read More</a></h3>
-            </div>
-        </div>
-      </section>
-    );
-  }
-}
 
-export default Blog;
+  return (
+    <section id="blog" className={"component"} aria-label="Blog Posts">
+      {blogPosts.map((blog) => buildBlogPost(blog))}
+      <div className="row post" aria-label="More blog posts page link">      
+          <div className="header-col">
+            <h3><a href="/blogs" aria-label="View All Blog Posts" title="View All Blog Posts">Read More</a></h3>
+          </div>
+      </div>
+    </section>
+  );
+}

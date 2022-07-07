@@ -1,6 +1,6 @@
 import React from "react";
 
-function BlogNav(){
+export default function BlogNav(){
   return (
       <nav id="nav-wrap" aria-label="Blog Navigation">
         <a className="mobile-btn" href="#nav-wrap" title="Show navigation">
@@ -30,5 +30,3 @@ function BlogNav(){
       </nav>
   );
 }
-
-export default BlogNav;

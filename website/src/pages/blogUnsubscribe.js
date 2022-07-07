@@ -4,10 +4,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import Footer from "../components/footer";
 import BlogNav from "../components/blogNavigation";
 import { ToastContainer } from 'react-toastify';
-import axios from "axios";
-import { API_URL } from "../config";
-import { error, missingRequiredFields, success } from '../utilities/toastMessages';
+import { missingRequiredFields, success } from '../utilities/toastMessages';
 import { GoogleReCaptcha } from 'react-google-recaptcha-v3';
+import { postAPIData } from "../utilities/apiRequests";
 
 function BlogUnsubscribe(){
   let [email, setEmail] = useState();
@@ -28,20 +27,14 @@ function BlogUnsubscribe(){
     e.preventDefault();
 
     if (validateSubscribe()) {
-      axios
-        .post(API_URL + "/unsubscribe", {
-          email: email
-        },{
-          headers: {
-            'X-Firebase-AppCheck': token,
-          }
-        })
-        .catch(() => {
-          error();
-        });
-      document.getElementById("subscribeForm").reset();
-      clearForm();
-      success();
+      postAPIData("/unsubscribe", {
+        email
+      }, token,
+      () => {
+        document.getElementById("subscribeForm").reset();
+        clearForm();
+        success();
+      });
     } else {
       missingRequiredFields();
     }

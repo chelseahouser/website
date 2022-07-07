@@ -1,62 +1,37 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
-import { API_URL } from "../config";
-import 'react-toastify/dist/ReactToastify.css';
-import { failedToLoadData } from '../utilities/toastMessages';
-import Footer from "../components/footer";
 import { useParams } from "react-router";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import moment from 'moment';
+import Footer from "../components/footer";
 import BlogNav from "../components/blogNavigation";
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw'
-import { ToastContainer } from 'react-toastify';
+import { getAPIData } from '../utilities/apiRequests'; 
 
-function BlogPost(){
+export default function BlogPost(){
   let { id } = useParams();
-  const [data, setData] = useState();
-  const [isLoading, setIsLoading] = useState(true);
-
-  const loadAsyncData = async () => {
-    setIsLoading(true);
-    try {
-      const resp = await fetch(API_URL + "/blog/" + id).then(r=>r.json());
-      setData(resp);
-      setIsLoading(false);
-    } catch(e) {
-      failedToLoadData();
-      setIsLoading(false);
-    }
-  }
+  const [blogPost, setBlogPost] = useState({});
 
   useEffect(() => {
-    loadAsyncData();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    getAPIData("/blog/" + id, (response) => setBlogPost(response.data));
+  });
 
-  if(isLoading) return (    
-    <div className="App">
-      <BlogNav />
-      <section id="blog">
-          <h2>Loading...</h2>
-      </section>
-      <Footer />
-  </div>);
-  else return (
+  return (
     <div className="App">
       <ToastContainer />
       <BlogNav />
-      <section id="blog" aria-label={"Blog Post: " + data.title}>
-          <h2>{data.title}</h2>
+      <section id="blog" aria-label={"Blog Post: " + blogPost.title}>
+          <h2>{blogPost?.title}</h2>
           <p className="info">
-            {new moment.unix(data.date._seconds).format("MMM YYYY")}
-            <span>&bull;</span>{" "}
-            <em className="date">
-              {data.tags? data.tags.join(', ') : ""}  
-            </em>
+            {new moment.unix(blogPost?.date?._seconds).format("MMM YYYY")}
+            &nbsp;&bull;&nbsp;
+            {blogPost?.tags?.join(', ')}  
           </p>
           <div className="blog-post">
             <ReactMarkdown rehypePlugins={[rehypeRaw]}>
-            {data.post}
+            {blogPost.post}
             </ReactMarkdown>
           </div>
       </section>
@@ -64,5 +39,3 @@ function BlogPost(){
     </div>
   );
 }
-
-export default BlogPost;

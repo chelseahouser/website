@@ -1,26 +1,17 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { API_URL } from "../config";
 import moment from 'moment';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { failedToLoadData } from '../utilities/toastMessages';
 import Footer from "../components/footer";
 import { TitleNavigation } from "../utilities/titleNavigation";
 import BlogNav from "../components/blogNavigation";
+import { getAPIData } from "../utilities/apiRequests";
 
 function BlogList() {
   const [blogPosts, setBlogPosts] = useState();
 
   useEffect(() => {
-    axios
-      .get(API_URL + "/blogs")
-      .then((response) => {
-        setBlogPosts(response.data);
-      })
-      .catch(() => {
-        failedToLoadData();
-      });
+    getAPIData("/blogs", (response) => setBlogPosts(response.data));
   }, []);
 
   const buildBlogPost = (blog) => {
