@@ -1,58 +1,25 @@
-import React, { Component } from "react";
-import axios from "axios";
-import { API_URL } from "../config";
+import React, { useEffect, useState } from "react";
 import moment from 'moment';
-import { failedToLoadData } from '../utilities/toastMessages';
-import 'react-toastify/dist/ReactToastify.css';
+import { getAPIData } from "../utilities/apiRequests";
 
-class Resume extends Component {
-  constructor(props) {
-    super(props);
+export default function Resume() {
+  const [work, setWork] = useState([]);
+  const [education, setEducation] = useState([]);
+  const [certifications, setCertifications] = useState([]);
 
-    this.state = {
-      work: [],
-      skills: [],
-      education: [],
-      certifications: []
-    };
-  }
+  useEffect(() => {
+    getAPIData("/work", (response) => setWork(response.data))
+  })
 
-  componentDidMount() {
-    axios
-      .get(API_URL + "/work")
-      .then((response) => {
-        this.setState({
-          work: response.data,
-        });
-      })
-      .catch(() => {
-        failedToLoadData();
-      });
+  useEffect(() => {
+    getAPIData("/education", (response) => setEducation(response.data))
+  })
 
-    axios
-      .get(API_URL + "/education")
-      .then((response) => {
-        this.setState({
-          education: response.data,
-        });
-      })
-      .catch(() => {
-        failedToLoadData();
-      });
+  useEffect(() => {
+    getAPIData("/certification", (response) => setCertifications(response.data))
+  })
 
-      axios
-      .get(API_URL + "/certification")
-      .then((response) => {
-        this.setState({
-          certifications: response.data,
-        });
-      })
-      .catch(() => {
-        failedToLoadData();
-      });
-  }
-
-  buildWorkList(work) {
+  function buildWorkList(work) {
     return (
       <div key={work.companyName}>
         <h2>{work.companyName}</h2>
@@ -66,7 +33,7 @@ class Resume extends Component {
     );
   }
 
-  buildEducationList(education) {
+  function buildEducationList(education) {
     return (
       <div key={education.school}>
         <h2>{education.school}</h2>
@@ -80,7 +47,7 @@ class Resume extends Component {
     );
   }
 
-  buildCertificationList(certification) {
+  function buildCertificationList(certification) {
     return (
       <div key={certification.name}>
         <h2>{certification.name}</h2>
@@ -91,61 +58,57 @@ class Resume extends Component {
     );
   }
 
-  render() {
-    return (
-      <section id="resume" aria-label="Resume Section">
-        <div className="row work" aria-label="Work Experience">
-          <div className="three columns header-col">
-            <h1>
-              <span>Work</span>
-            </h1>
-          </div>
-
-          <div className="nine columns main-col">
-            {this.state.work.map((work) => {
-              return this.buildWorkList(work);
-            })}
-          </div>
+  return (
+    <section id="resume" aria-label="Resume Section">
+      <div className="row work" aria-label="Work Experience">
+        <div className="three columns header-col">
+          <h1>
+            <span>Work</span>
+          </h1>
         </div>
 
-        <div className="row education" aria-label="Education">
-          <div className="three columns header-col">
-            <h1>
-              <span>Education</span>
-            </h1>
-          </div>
+        <div className="nine columns main-col">
+          {work.map((work) => {
+            return buildWorkList(work);
+          })}
+        </div>
+      </div>
 
-          <div className="nine columns main-col">
-            <div className="row item">
-              <div className="twelve columns">
-                {this.state.education.map((education) => {
-                  return this.buildEducationList(education);
-                })}
-              </div>
+      <div className="row education" aria-label="Education">
+        <div className="three columns header-col">
+          <h1>
+            <span>Education</span>
+          </h1>
+        </div>
+
+        <div className="nine columns main-col">
+          <div className="row item">
+            <div className="twelve columns">
+              {education.map((education) => {
+                return buildEducationList(education);
+              })}
             </div>
           </div>
         </div>
+      </div>
 
-        <div className="row certifications" aria-label="Certifications">
-          <div className="three columns header-col">
-            <h1>
-              <span>Certifications</span>
-            </h1>
-          </div>
+      <div className="row certifications" aria-label="Certifications">
+        <div className="three columns header-col">
+          <h1>
+            <span>Certifications</span>
+          </h1>
+        </div>
 
-          <div className="nine columns main-col">
-            <div className="row item">
-              <div className="twelve columns">
-                {this.state.certifications.map((certification) => {
-                  return this.buildCertificationList(certification);
-                })}
-              </div>
+        <div className="nine columns main-col">
+          <div className="row item">
+            <div className="twelve columns">
+              {certifications.map((certification) => {
+                return buildCertificationList(certification);
+              })}
             </div>
           </div>
         </div>
-      </section>
-    );
-  }
+      </div>
+    </section>
+  );
 }
-
-export default Resume;

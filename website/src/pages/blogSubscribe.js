@@ -8,7 +8,7 @@ import { missingRequiredFields, success } from '../utilities/toastMessages';
 import { GoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { postAPIData } from "../utilities/apiRequests";
 
-function BlogSubscribe(){
+export default function BlogSubscribe(){
   let [email, setEmail] = useState();
   let [token, setToken] = useState();
 
@@ -93,5 +93,3 @@ function BlogSubscribe(){
     </div>
   );
 }
-
-export default BlogSubscribe;
