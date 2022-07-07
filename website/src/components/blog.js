@@ -8,7 +8,7 @@ export default function Blog() {
 
   useEffect(() => {
     getAPIData("/blogs/3", (response) => setBlogPosts(response.data));
-  })
+  }, [])
 
   function buildBlogPost(blog) {
     return (

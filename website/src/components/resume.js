@@ -9,15 +9,15 @@ export default function Resume() {
 
   useEffect(() => {
     getAPIData("/work", (response) => setWork(response.data))
-  })
+  }, [])
 
   useEffect(() => {
     getAPIData("/education", (response) => setEducation(response.data))
-  })
+  }, [])
 
   useEffect(() => {
     getAPIData("/certification", (response) => setCertifications(response.data))
-  })
+  }, [])
 
   function buildWorkList(work) {
     return (

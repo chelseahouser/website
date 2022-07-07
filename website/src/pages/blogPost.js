@@ -16,7 +16,7 @@ export default function BlogPost(){
 
   useEffect(() => {
     getAPIData("/blog/" + id, (response) => setBlogPost(response.data));
-  });
+  }, []);
 
   return (
     <div className="App">

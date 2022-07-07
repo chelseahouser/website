@@ -6,7 +6,7 @@ export default function Books() {
 
   useEffect(() => {
     getAPIData("/book", (response) => setBooks(response.data))
-  })
+  }, [])
 
   function buildBookList(book) {
     return (
